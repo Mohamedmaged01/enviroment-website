@@ -63,7 +63,7 @@ export default function RecycleHero() {
             <div className="flex items-center space-x-2">
               <div className="w-32 h-16 flex items-center justify-center">
                 <img
-                  src="/logo-ar.png"
+                  src="/logo-en.png"
                   alt="Recycle Logo"
                   className="w-full h-full object-contain"
                 />

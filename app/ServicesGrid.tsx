@@ -15,22 +15,17 @@ interface ServiceCardProps {
   showButton: boolean;
 }
 
-const ServiceCard: React.FC<ServiceCardProps> = ({ icon: Icon, title, description, showButton }) => (
+const ServiceCard: React.FC<ServiceCardProps> = ({
+  icon: Icon,
+  title,
+  description,
+  showButton,
+}) => (
   <div className="text-center text-white p-8">
     <div className="mb-6 flex justify-center">
       <Icon className="w-20 h-20" strokeWidth={1.5} />
     </div>
     <h3 className="text-2xl font-semibold mb-4">{title}</h3>
-    {description && (
-      <p className="text-teal-100 mb-6 max-w-xs mx-auto leading-relaxed">
-        {description}
-      </p>
-    )}
-    {showButton && (
-      <button className="text-white font-semibold hover:text-teal-200 transition-colors">
-        LEARN MORE
-      </button>
-    )}
   </div>
 );
 
@@ -171,11 +166,6 @@ const ServicesGrid = () => {
         </div>
         {/* Right side - Image with Recycle Symbol */}
         <div className="relative h-full min-h-[600px]">
-          <img
-            src="https://images.unsplash.com/photo-1532629345422-7515f3d16bb6?w=1200&h=800&fit=crop"
-            alt="Team collaboration"
-            className="absolute inset-0 w-full h-full object-cover"
-          />
           {/* Overlay */}
           <div className="absolute inset-0 bg-black/30"></div>
           {/* Recycle Symbol with Hexagon */}
