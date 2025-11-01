@@ -9,7 +9,13 @@ import {
   Globe,
 } from "lucide-react";
 
-const FeatureItem = ({ icon: Icon, title, description }) => (
+type FeatureItemProps = {
+  icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
+  title: string;
+  description: string;
+};
+
+const FeatureItem = ({ icon: Icon, title, description }: FeatureItemProps) => (
   <div className="flex gap-3 group">
     <div className="flex-shrink-0 pt-0.5">
       <div className="w-8 h-8 bg-teal-500 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
