@@ -263,8 +263,8 @@ export default function RecycleHero() {
             {/* Right Video */}
             <div className="relative group">
               <img
-                src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=800&q=80"
-                alt="Business professionals"
+                src={slides[0].image}
+                alt={slides[0].title}
                 className="w-full rounded-lg shadow-lg"
               />
               {/* Play Button */}

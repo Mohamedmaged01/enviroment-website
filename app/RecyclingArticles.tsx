@@ -28,7 +28,6 @@ export default function RecyclingArticles() {
 
   return (
     <div className="relative bg-gradient-to-br from-emerald-400 via-teal-500 to-green-500 min-h-screen overflow-hidden">
-      {/* Abstract geometric background shapes */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-20 left-10 w-96 h-96 bg-teal-600/20 rounded-full blur-3xl"></div>
         <div className="absolute top-40 right-20 w-80 h-80 bg-emerald-600/20 rounded-full blur-3xl"></div>

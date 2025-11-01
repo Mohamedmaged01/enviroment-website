@@ -167,7 +167,14 @@ const ServicesGrid = () => {
         {/* Right side - Image with Recycle Symbol */}
         <div className="relative h-full min-h-[600px]">
           {/* Overlay */}
-          <div className="absolute inset-0 bg-black/30"></div>
+          <div className="absolute inset-0 bg-black/30">
+          {/* Example image from slider */}
+          <img
+            src="https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?auto=format&fit=crop&w=1920&q=80"
+            alt="Environmental Service"
+            className="w-full h-full object-cover"
+          />
+          </div>
           {/* Recycle Symbol with Hexagon */}
           <div className="absolute inset-0 flex items-center justify-center">
             <div className="relative">
