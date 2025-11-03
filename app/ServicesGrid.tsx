@@ -21,9 +21,9 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
   description,
   showButton,
 }) => (
-  <div className="text-center text-white p-8">
+  <div className="text-center text-white p-8 transition-all duration-300 transform hover:-translate-y-1 hover:scale-[1.02] animate-fade-in rounded-lg hover-bg-shift-dark shadow-soft shadow-soft-hover ring-teal-hover">
     <div className="mb-6 flex justify-center">
-      <Icon className="w-20 h-20" strokeWidth={1.5} />
+      <Icon className="w-20 h-20 transition-transform duration-500 group-hover:rotate-6 group-hover:-translate-y-1" strokeWidth={1.5} />
     </div>
     <h3 className="text-2xl font-semibold mb-4">{title}</h3>
   </div>
@@ -160,14 +160,16 @@ const ServicesGrid = () => {
           </div>
           <div className="grid grid-cols-3 relative z-10">
             {services.map((service, index) => (
-              <ServiceCard key={index} {...service} />
+              <div key={index} className={`${index % 3 === 1 ? "anim-delay-100" : index % 3 === 2 ? "anim-delay-200" : ""} group`}>
+                <ServiceCard {...service} />
+              </div>
             ))}
           </div>
         </div>
         {/* Right side - Image with Recycle Symbol */}
         <div className="relative h-full min-h-[600px]">
           {/* Overlay */}
-          <div className="absolute inset-0 bg-black/30">
+          <div className="absolute inset-0 bg-black/30 animate-fade-in">
             {/* Example image from slider */}
             <img
               src="https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?auto=format&fit=crop&w=1920&q=80"
@@ -176,7 +178,7 @@ const ServicesGrid = () => {
             />
           </div>
           {/* Recycle Symbol with Hexagon */}
-          <div className="absolute inset-0 flex items-center justify-center">
+          <div className="absolute inset-0 flex items-center justify-center animate-scale-in anim-delay-200">
             <div className="relative">
               {/* Hexagon outline */}
               <svg

@@ -24,3 +24,78 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* Basic animation utilities */
+@keyframes fade-in {
+  from { opacity: 0 }
+  to { opacity: 1 }
+}
+
+@keyframes slide-up {
+  from { transform: translateY(16px); opacity: 0 }
+  to { transform: translateY(0); opacity: 1 }
+}
+
+@keyframes scale-in {
+  from { transform: scale(0.96); opacity: 0 }
+  to { transform: scale(1); opacity: 1 }
+}
+
+.animate-fade-in { animation: fade-in .6s ease-out both }
+.animate-slide-up { animation: slide-up .7s ease-out both }
+.animate-scale-in { animation: scale-in .5s ease-out both }
+
+/* Simple stagger helpers */
+.anim-delay-100 { animation-delay: .1s }
+.anim-delay-200 { animation-delay: .2s }
+.anim-delay-300 { animation-delay: .3s }
+.anim-delay-400 { animation-delay: .4s }
+.anim-delay-500 { animation-delay: .5s }
+
+/* Hover background utilities for cards */
+.hover-bg-shift {
+  transition: background .35s ease, background-color .35s ease, box-shadow .35s ease;
+  background: #ffffff;
+}
+.hover-bg-shift:hover {
+  background: linear-gradient(180deg, rgba(20,184,166,0.06), rgba(20,184,166,0.12));
+}
+
+.hover-bg-shift-dark {
+  transition: background-color .35s ease, box-shadow .35s ease, transform .35s ease;
+  background-color: rgba(255,255,255,0.04);
+}
+.hover-bg-shift-dark:hover {
+  background-color: rgba(255,255,255,0.10);
+}
+
+/* Extra shadows and ring utilities */
+.shadow-soft { box-shadow: 0 10px 25px rgba(0,0,0,.08) }
+.shadow-soft-hover { transition: box-shadow .35s ease }
+.shadow-soft-hover:hover { box-shadow: 0 16px 40px rgba(0,0,0,.15) }
+.ring-teal-hover { transition: box-shadow .35s ease }
+.ring-teal-hover:hover { box-shadow: 0 0 0 3px rgba(20,184,166,.25) }
+
+/* Underline from left hover effect for links */
+.hover-underline-left { position: relative }
+.hover-underline-left::after {
+  content: ""; position: absolute; left: 0; bottom: -2px; height: 2px;
+  width: 0; background: currentColor; transition: width .3s ease;
+}
+.hover-underline-left:hover::after { width: 100% }
+
+/* Image zoom on hover within a group */
+.group:hover .img-zoom { transform: scale(1.05) }
+.img-zoom { transition: transform .5s ease }
+
+/* Button micro-interactions */
+.btn-pulse { transition: transform .2s ease, box-shadow .2s ease }
+.btn-pulse:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(0,0,0,.12) }
+
+/* Gradient text utility */
+.text-gradient-teal { background: linear-gradient(90deg,#14b8a6,#22d3ee); -webkit-background-clip: text; background-clip: text; color: transparent }
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important }
+}

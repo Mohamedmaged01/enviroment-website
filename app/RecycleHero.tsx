@@ -5,6 +5,11 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 export default function RecycleHero() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    setIsVisible(true);
+  }, []);
 
   const slides = [
     {
@@ -55,57 +60,232 @@ export default function RecycleHero() {
 
   return (
     <div className="min-h-screen bg-gray-100">
+      <style jsx>{`
+        @keyframes fadeInUp {
+          from {
+            opacity: 0;
+            transform: translateY(30px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+
+        @keyframes fadeInDown {
+          from {
+            opacity: 0;
+            transform: translateY(-30px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+
+        @keyframes slideInLeft {
+          from {
+            opacity: 0;
+            transform: translateX(-50px);
+          }
+          to {
+            opacity: 1;
+            transform: translateX(0);
+          }
+        }
+
+        @keyframes slideInRight {
+          from {
+            opacity: 0;
+            transform: translateX(50px);
+          }
+          to {
+            opacity: 1;
+            transform: translateX(0);
+          }
+        }
+
+        @keyframes pulse {
+          0%,
+          100% {
+            transform: scale(1);
+          }
+          50% {
+            transform: scale(1.05);
+          }
+        }
+
+        @keyframes float {
+          0%,
+          100% {
+            transform: translateY(0px);
+          }
+          50% {
+            transform: translateY(-10px);
+          }
+        }
+
+        @keyframes shimmer {
+          0% {
+            background-position: -1000px 0;
+          }
+          100% {
+            background-position: 1000px 0;
+          }
+        }
+
+        .animate-fade-in-up {
+          animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        .animate-fade-in-down {
+          animation: fadeInDown 0.8s ease-out forwards;
+        }
+
+        .animate-slide-in-left {
+          animation: slideInLeft 0.8s ease-out forwards;
+        }
+
+        .animate-slide-in-right {
+          animation: slideInRight 0.8s ease-out forwards;
+        }
+
+        .animate-float {
+          animation: float 3s ease-in-out infinite;
+        }
+
+        .animate-pulse-slow {
+          animation: pulse 2s ease-in-out infinite;
+        }
+
+        .hover-lift {
+          transition: all 0.3s ease;
+        }
+
+        .hover-lift:hover {
+          transform: translateY(-8px);
+          box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .gradient-overlay {
+          background: linear-gradient(
+            135deg,
+            rgba(20, 184, 166, 0.9) 0%,
+            rgba(13, 148, 136, 0.8) 100%
+          );
+        }
+
+        .glass-effect {
+          background: rgba(255, 255, 255, 0.95);
+          backdrop-filter: blur(10px);
+          border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .text-gradient {
+          background: linear-gradient(135deg, #14b8a6 0%, #0d9488 100%);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
+        }
+
+        .shimmer-effect {
+          background: linear-gradient(
+            90deg,
+            transparent,
+            rgba(255, 255, 255, 0.4),
+            transparent
+          );
+          background-size: 200% 100%;
+          animation: shimmer 2s infinite;
+        }
+
+        .card-hover {
+          transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .card-hover:hover {
+          transform: translateY(-12px) scale(1.02);
+          box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+        }
+
+        .icon-bounce:hover {
+          animation: pulse 0.6s ease-in-out;
+        }
+
+        .stagger-1 {
+          animation-delay: 0.1s;
+        }
+        .stagger-2 {
+          animation-delay: 0.2s;
+        }
+        .stagger-3 {
+          animation-delay: 0.3s;
+        }
+        .stagger-4 {
+          animation-delay: 0.4s;
+        }
+        .stagger-5 {
+          animation-delay: 0.5s;
+        }
+        .stagger-6 {
+          animation-delay: 0.6s;
+        }
+      `}</style>
+
       {/* Navigation */}
-      <nav className="bg-white shadow-sm relative z-50">
+      <nav className="bg-white shadow-lg relative z-50 animate-fade-in-down">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-20">
             {/* Logo */}
             <div className="flex items-center space-x-2">
               <div className="w-32 h-16 flex items-center justify-center">
-                <img
-                  src="/logo-en.png"
-                  alt="Recycle Logo"
-                  className="w-full h-full object-contain"
-                />
+                <div className="text-2xl font-bold text-gradient">RECYCLE</div>
               </div>
             </div>
             {/* Navigation Links */}
             <div className="hidden md:flex items-center space-x-8">
-              <a href="#" className="text-green-600 font-medium">
+              <a href="#" className="text-green-600 font-medium relative group">
                 HOME
+                <span className="absolute bottom-0 left-0 w-full h-0.5 bg-green-600 transform origin-left"></span>
               </a>
               <a
                 href="#"
-                className="text-gray-600 hover:text-green-600 transition-colors"
+                className="text-gray-600 hover:text-green-600 transition-all duration-300 relative group"
               >
                 ABOUT
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-green-600 group-hover:w-full transition-all duration-300"></span>
               </a>
               <a
                 href="#"
-                className="text-gray-600 hover:text-green-600 transition-colors"
+                className="text-gray-600 hover:text-green-600 transition-all duration-300 relative group"
               >
                 SERVICES
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-green-600 group-hover:w-full transition-all duration-300"></span>
               </a>
               <a
                 href="#"
-                className="text-gray-600 hover:text-green-600 transition-colors"
+                className="text-gray-600 hover:text-green-600 transition-all duration-300 relative group"
               >
                 ELEMENTS
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-green-600 group-hover:w-full transition-all duration-300"></span>
               </a>
               <a
                 href="#"
-                className="text-gray-600 hover:text-green-600 transition-colors"
+                className="text-gray-600 hover:text-green-600 transition-all duration-300 relative group"
               >
                 BLOG
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-green-600 group-hover:w-full transition-all duration-300"></span>
               </a>
               <a
                 href="#"
-                className="text-gray-600 hover:text-green-600 transition-colors"
+                className="text-gray-600 hover:text-green-600 transition-all duration-300 relative group"
               >
                 CONTACT
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-green-600 group-hover:w-full transition-all duration-300"></span>
               </a>
-              <button className="bg-green-500 hover:bg-green-600 text-white px-6 py-2 rounded font-medium transition-colors">
-                GET A QUOTE
+              <button className="bg-green-500 hover:bg-green-600 text-white px-6 py-2 rounded font-medium transition-all duration-300 transform hover:scale-105 hover:shadow-lg relative overflow-hidden group">
+                <span className="relative z-10">Search Engine</span>
+                <span className="absolute inset-0 bg-green-700 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
               </button>
             </div>
           </div>
@@ -128,28 +308,32 @@ export default function RecycleHero() {
               <img
                 src={slide.image}
                 alt={slide.title}
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover transform transition-transform duration-700"
+                style={{
+                  transform: index === currentSlide ? "scale(1)" : "scale(1.1)",
+                }}
               />
-              {/* Dark Overlay */}
-              <div className="absolute inset-0 bg-black/40"></div>
+              {/* Dark Overlay with gradient */}
+              <div className="absolute inset-0 bg-gradient-to-r from-black/50 to-black/30"></div>
 
               {/* Content Card - Animated */}
               <div
-                className={`absolute left-8 sm:left-16 top-1/3 bg-white/95 backdrop-blur-sm rounded-lg p-8 shadow-2xl max-w-md transform transition-all duration-700 delay-300 ${
+                className={`absolute left-8 sm:left-16 top-1/3 glass-effect rounded-xl p-8 shadow-2xl max-w-md transform transition-all duration-700 delay-300 ${
                   index === currentSlide
                     ? "translate-x-0 opacity-100"
                     : "-translate-x-20 opacity-0"
                 }`}
               >
-                <div className="w-16 h-1 bg-green-600 mb-4"></div>
+                <div className="w-16 h-1 bg-linear-to-r from-green-600 to-teal-500 mb-4 rounded-full"></div>
                 <h2 className="text-4xl font-bold text-gray-800 mb-4 leading-tight">
-                  {slide.title}
+                  <span className="text-gradient">{slide.title}</span>
                 </h2>
                 <p className="text-gray-700 text-lg leading-relaxed mb-6">
                   {slide.description}
                 </p>
-                <button className="bg-green-600 hover:bg-green-700 text-white px-8 py-3 rounded font-semibold transition-all transform hover:scale-105">
-                  LEARN MORE
+                <button className="bg-gradient-to-r from-green-600 to-teal-600 hover:from-green-700 hover:to-teal-700 text-white px-8 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 hover:shadow-xl relative overflow-hidden group">
+                  <span className="relative z-10">LEARN MORE</span>
+                  <span className="absolute inset-0 bg-white/20 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300"></span>
                 </button>
               </div>
             </div>
@@ -160,16 +344,16 @@ export default function RecycleHero() {
         <button
           onClick={goToPrevSlide}
           disabled={isTransitioning}
-          className="absolute left-4 top-1/2 -translate-y-1/2 w-14 h-14 bg-white/80 hover:bg-white backdrop-blur-sm rounded-full flex items-center justify-center z-30 transition-all hover:scale-110 disabled:opacity-50"
+          className="absolute left-4 top-1/2 -translate-y-1/2 w-14 h-14 bg-white/90 hover:bg-white backdrop-blur-sm rounded-full flex items-center justify-center z-30 transition-all duration-300 hover:scale-110 hover:shadow-xl disabled:opacity-50 group"
         >
-          <ChevronLeft className="w-7 h-7 text-gray-700" />
+          <ChevronLeft className="w-7 h-7 text-gray-700 group-hover:text-green-600 transition-colors" />
         </button>
         <button
           onClick={goToNextSlide}
           disabled={isTransitioning}
-          className="absolute right-4 top-1/2 -translate-y-1/2 w-14 h-14 bg-white/80 hover:bg-white backdrop-blur-sm rounded-full flex items-center justify-center z-30 transition-all hover:scale-110 disabled:opacity-50"
+          className="absolute right-4 top-1/2 -translate-y-1/2 w-14 h-14 bg-white/90 hover:bg-white backdrop-blur-sm rounded-full flex items-center justify-center z-30 transition-all duration-300 hover:scale-110 hover:shadow-xl disabled:opacity-50 group"
         >
-          <ChevronRight className="w-7 h-7 text-gray-700" />
+          <ChevronRight className="w-7 h-7 text-gray-700 group-hover:text-green-600 transition-colors" />
         </button>
 
         {/* Slide Indicators */}
@@ -197,18 +381,18 @@ export default function RecycleHero() {
       {/* Three Service Cards */}
       <div className="relative -mt-32 z-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-0 shadow-2xl">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 shadow-2xl">
             {/* Industrial Card */}
-            <div className="bg-teal-500 text-white p-8 hover:bg-teal-600 transition-colors">
+            <div className="bg-linear-to-br from-teal-500 to-teal-600 text-white p-8 hover:from-teal-600 hover:to-teal-700 transition-all duration-300 rounded-xl transform hover:-translate-y-2 hover:shadow-2xl cursor-pointer">
               <h3 className="text-xl font-bold mb-2">INDUSTRIAL</h3>
-              <p className="italic text-lg mb-4">Waste Management</p>
-              <p className="text-sm leading-relaxed">
+              <p className="italic text-lg mb-4 opacity-90">Waste Management</p>
+              <p className="text-sm leading-relaxed opacity-90">
                 We offer complete industrial waste management services, from
                 collection to recycling.
               </p>
             </div>
             {/* Sustainable Card */}
-            <div className="bg-white p-8 hover:bg-gray-50 transition-colors">
+            <div className="bg-white p-8 hover:bg-gray-50 transition-all duration-300 rounded-xl transform hover:-translate-y-2 hover:shadow-2xl cursor-pointer border-2 border-transparent hover:border-teal-500">
               <h3 className="text-xl font-bold text-teal-600 mb-2">
                 SUSTAINABLE
               </h3>
@@ -221,7 +405,7 @@ export default function RecycleHero() {
               </p>
             </div>
             {/* Environmental Card */}
-            <div className="bg-white p-8 hover:bg-gray-50 transition-colors">
+            <div className="bg-white p-8 hover:bg-gray-50 transition-all duration-300 rounded-xl transform hover:-translate-y-2 hover:shadow-2xl cursor-pointer border-2 border-transparent hover:border-teal-500">
               <h3 className="text-xl font-bold text-teal-600 mb-2">
                 ENVIRONMENTAL
               </h3>
@@ -238,15 +422,17 @@ export default function RecycleHero() {
       </div>
 
       {/* Welcome Section */}
-      <div className="py-20 bg-gray-50">
+      <div className="py-20 bg-linear-to-b from-gray-50 to-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             {/* Left Content */}
-            <div>
+            <div
+              className={`${isVisible ? "animate-slide-in-left" : "opacity-0"}`}
+            >
               <h2 className="text-4xl font-bold text-gray-800 mb-4">
-                Welcome to Recycle
+                Welcome to <span className="text-gradient">Recycle</span>
               </h2>
-              <p className="text-lg text-gray-600 mb-6">
+              <p className="text-lg text-gray-600 mb-6 font-medium">
                 We are a Leading Global Waste Management Company, Committed to
                 The Environment
               </p>
@@ -256,20 +442,25 @@ export default function RecycleHero() {
                 Praesent fringilla pharetra sapien sit amet semper. Nunc id
                 massa ut mi tempus mattis ac eu lectus.
               </p>
-              <button className="border-2 border-gray-300 text-gray-700 px-8 py-3 hover:bg-gray-100 transition">
+              <button className="border-2 border-teal-600 text-teal-600 px-8 py-3 rounded-lg hover:bg-teal-600 hover:text-white transition-all duration-300 font-semibold transform hover:scale-105 hover:shadow-lg">
                 OUR SERVICES
               </button>
             </div>
             {/* Right Video */}
-            <div className="relative group">
+            <div
+              className={`relative group ${
+                isVisible ? "animate-slide-in-right" : "opacity-0"
+              }`}
+            >
+              <div className="absolute inset-0 bg-linear-to-r from-teal-400 to-green-500 rounded-xl transform rotate-3 group-hover:rotate-6 transition-transform duration-300"></div>
               <img
                 src={slides[0].image}
                 alt={slides[0].title}
-                className="w-full rounded-lg shadow-lg"
+                className="relative w-full rounded-xl shadow-2xl transform -rotate-1 group-hover:rotate-0 transition-transform duration-300"
               />
               {/* Play Button */}
-              <button className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-20 h-20 bg-white rounded-full flex items-center justify-center shadow-xl hover:scale-110 transition-transform group-hover:bg-teal-500">
-                <div className="w-0 h-0 border-t-8 border-t-transparent border-l-12 border-l-teal-600 border-b-8 border-b-transparent ml-1 group-hover:border-l-white"></div>
+              <button className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-20 h-20 bg-white rounded-full flex items-center justify-center shadow-2xl hover:scale-110 transition-all duration-300 group-hover:bg-teal-500 animate-pulse-slow">
+                <div className="w-0 h-0 border-t-8 border-t-transparent border-l-12 border-l-teal-600 border-b-8 border-b-transparent ml-1 group-hover:border-l-white transition-colors"></div>
               </button>
             </div>
           </div>
@@ -277,14 +468,18 @@ export default function RecycleHero() {
       </div>
 
       {/* Services & Solutions Section */}
-      <div className="py-20 bg-white">
+      <div className="py-20 bg-white relative overflow-hidden">
+        {/* Background decorative elements */}
+        <div className="absolute top-0 right-0 w-96 h-96 bg-teal-100 rounded-full filter blur-3xl opacity-20 -z-10"></div>
+        <div className="absolute bottom-0 left-0 w-96 h-96 bg-green-100 rounded-full filter blur-3xl opacity-20 -z-10"></div>
+
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Section Header */}
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-gray-800 mb-4">
-              Services & <span className="text-teal-600">Solutions</span>
+              Services & <span className="text-gradient">Solutions</span>
             </h2>
-            <p className="text-gray-600 italic max-w-4xl mx-auto">
+            <p className="text-gray-600 italic max-w-4xl mx-auto text-lg">
               We offer comprehensive recycling, industry-specific waste
               management, quality control & sustainability solutions for
               businesses and corporations.
@@ -293,10 +488,10 @@ export default function RecycleHero() {
           {/* Service Grid */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
             {/* Waste Collection */}
-            <div className="text-center group">
-              <div className="inline-flex items-center justify-center w-20 h-20 mb-6 transform group-hover:scale-110 transition-transform">
+            <div className="text-center group card-hover stagger-1 opacity-0 animate-fade-in-up">
+              <div className="inline-flex items-center justify-center w-24 h-24 mb-6 transform group-hover:scale-110 transition-all duration-300 bg-gradient-to-br from-teal-100 to-green-100 rounded-2xl icon-bounce animate-float">
                 <svg
-                  className="w-full h-full text-teal-600"
+                  className="w-12 h-12 text-teal-600"
                   viewBox="0 0 64 64"
                   fill="none"
                   stroke="currentColor"
@@ -307,19 +502,22 @@ export default function RecycleHero() {
                   <circle cx="32" cy="42" r="6" />
                 </svg>
               </div>
-              <h3 className="text-xl font-bold text-gray-800 mb-3">
+              <h3 className="text-xl font-bold text-gray-800 mb-3 group-hover:text-teal-600 transition-colors">
                 Waste Collection
               </h3>
-              <p className="text-gray-600 text-sm">
+              <p className="text-gray-600 text-sm leading-relaxed">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore.
               </p>
             </div>
             {/* Recycling Services */}
-            <div className="text-center group">
-              <div className="inline-flex items-center justify-center w-20 h-20 mb-6 transform group-hover:scale-110 transition-transform">
+            <div className="text-center group card-hover stagger-2 opacity-0 animate-fade-in-up">
+              <div
+                className="inline-flex items-center justify-center w-24 h-24 mb-6 transform group-hover:scale-110 transition-all duration-300 bg-gradient-to-br from-teal-100 to-green-100 rounded-2xl icon-bounce"
+                style={{ animationDelay: "0.5s" }}
+              >
                 <svg
-                  className="w-full h-full text-teal-600"
+                  className="w-12 h-12 text-teal-600"
                   viewBox="0 0 64 64"
                   fill="none"
                   stroke="currentColor"
@@ -330,19 +528,22 @@ export default function RecycleHero() {
                   <path d="M48 38 L48 42 L38 42 L38 32 L48 32 L48 36 L42 28 Z" />
                 </svg>
               </div>
-              <h3 className="text-xl font-bold text-gray-800 mb-3">
+              <h3 className="text-xl font-bold text-gray-800 mb-3 group-hover:text-teal-600 transition-colors">
                 Recycling Services
               </h3>
-              <p className="text-gray-600 text-sm">
+              <p className="text-gray-600 text-sm leading-relaxed">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore.
               </p>
             </div>
             {/* Environmental */}
-            <div className="text-center group">
-              <div className="inline-flex items-center justify-center w-20 h-20 mb-6 transform group-hover:scale-110 transition-transform">
+            <div className="text-center group card-hover stagger-3 opacity-0 animate-fade-in-up">
+              <div
+                className="inline-flex items-center justify-center w-24 h-24 mb-6 transform group-hover:scale-110 transition-all duration-300 bg-gradient-to-br from-teal-100 to-green-100 rounded-2xl icon-bounce animate-float"
+                style={{ animationDelay: "1s" }}
+              >
                 <svg
-                  className="w-full h-full text-teal-600"
+                  className="w-12 h-12 text-teal-600"
                   viewBox="0 0 64 64"
                   fill="none"
                   stroke="currentColor"
@@ -353,19 +554,19 @@ export default function RecycleHero() {
                   <path d="M28 36 L32 40 L36 36" />
                 </svg>
               </div>
-              <h3 className="text-xl font-bold text-gray-800 mb-3">
+              <h3 className="text-xl font-bold text-gray-800 mb-3 group-hover:text-teal-600 transition-colors">
                 Environmental
               </h3>
-              <p className="text-gray-600 text-sm">
+              <p className="text-gray-600 text-sm leading-relaxed">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore.
               </p>
             </div>
             {/* Quality Audits */}
-            <div className="text-center group">
-              <div className="inline-flex items-center justify-center w-20 h-20 mb-6 transform group-hover:scale-110 transition-transform">
+            <div className="text-center group card-hover stagger-4 opacity-0 animate-fade-in-up">
+              <div className="inline-flex items-center justify-center w-24 h-24 mb-6 transform group-hover:scale-110 transition-all duration-300 bg-gradient-to-br from-teal-100 to-green-100 rounded-2xl icon-bounce">
                 <svg
-                  className="w-full h-full text-teal-600"
+                  className="w-12 h-12 text-teal-600"
                   viewBox="0 0 64 64"
                   fill="none"
                   stroke="currentColor"
@@ -375,19 +576,22 @@ export default function RecycleHero() {
                   <path d="M24 32 L30 38 L42 26" strokeWidth="3" />
                 </svg>
               </div>
-              <h3 className="text-xl font-bold text-gray-800 mb-3">
+              <h3 className="text-xl font-bold text-gray-800 mb-3 group-hover:text-teal-600 transition-colors">
                 Quality Audits
               </h3>
-              <p className="text-gray-600 text-sm">
+              <p className="text-gray-600 text-sm leading-relaxed">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore.
               </p>
             </div>
             {/* BIO Fuel Production */}
-            <div className="text-center group">
-              <div className="inline-flex items-center justify-center w-20 h-20 mb-6 transform group-hover:scale-110 transition-transform">
+            <div className="text-center group card-hover stagger-5 opacity-0 animate-fade-in-up">
+              <div
+                className="inline-flex items-center justify-center w-24 h-24 mb-6 transform group-hover:scale-110 transition-all duration-300 bg-gradient-to-br from-teal-100 to-green-100 rounded-2xl icon-bounce animate-float"
+                style={{ animationDelay: "0.5s" }}
+              >
                 <svg
-                  className="w-full h-full text-teal-600"
+                  className="w-12 h-12 text-teal-600"
                   viewBox="0 0 64 64"
                   fill="none"
                   stroke="currentColor"
@@ -398,19 +602,22 @@ export default function RecycleHero() {
                   <path d="M38 38 Q42 34 42 28 Q42 22 38 18" />
                 </svg>
               </div>
-              <h3 className="text-xl font-bold text-gray-800 mb-3">
+              <h3 className="text-xl font-bold text-gray-800 mb-3 group-hover:text-teal-600 transition-colors">
                 BIO Fuel Production
               </h3>
-              <p className="text-gray-600 text-sm">
+              <p className="text-gray-600 text-sm leading-relaxed">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore.
               </p>
             </div>
             {/* Sustainability */}
-            <div className="text-center group">
-              <div className="inline-flex items-center justify-center w-20 h-20 mb-6 transform group-hover:scale-110 transition-transform">
+            <div className="text-center group card-hover stagger-6 opacity-0 animate-fade-in-up">
+              <div
+                className="inline-flex items-center justify-center w-24 h-24 mb-6 transform group-hover:scale-110 transition-all duration-300 bg-gradient-to-br from-teal-100 to-green-100 rounded-2xl icon-bounce animate-float"
+                style={{ animationDelay: "1s" }}
+              >
                 <svg
-                  className="w-full h-full text-teal-600"
+                  className="w-12 h-12 text-teal-600"
                   viewBox="0 0 64 64"
                   fill="none"
                   stroke="currentColor"
@@ -422,10 +629,10 @@ export default function RecycleHero() {
                   <path d="M28 46 L28 52 M36 46 L36 52" />
                 </svg>
               </div>
-              <h3 className="text-xl font-bold text-gray-800 mb-3">
+              <h3 className="text-xl font-bold text-gray-800 mb-3 group-hover:text-teal-600 transition-colors">
                 Sustainability
               </h3>
-              <p className="text-gray-600 text-sm">
+              <p className="text-gray-600 text-sm leading-relaxed">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore.
               </p>
