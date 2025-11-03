@@ -23,7 +23,10 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
 }) => (
   <div className="text-center text-white p-8 transition-all duration-300 transform hover:-translate-y-1 hover:scale-[1.02] animate-fade-in rounded-lg hover-bg-shift-dark shadow-soft shadow-soft-hover ring-teal-hover">
     <div className="mb-6 flex justify-center">
-      <Icon className="w-20 h-20 transition-transform duration-500 group-hover:rotate-6 group-hover:-translate-y-1" strokeWidth={1.5} />
+      <Icon
+        className="w-20 h-20 transition-transform duration-500 group-hover:rotate-6 group-hover:-translate-y-1"
+        strokeWidth={1.5}
+      />
     </div>
     <h3 className="text-2xl font-semibold mb-4">{title}</h3>
   </div>
@@ -160,7 +163,16 @@ const ServicesGrid = () => {
           </div>
           <div className="grid grid-cols-3 relative z-10">
             {services.map((service, index) => (
-              <div key={index} className={`${index % 3 === 1 ? "anim-delay-100" : index % 3 === 2 ? "anim-delay-200" : ""} group`}>
+              <div
+                key={index}
+                className={`${
+                  index % 3 === 1
+                    ? "anim-delay-100"
+                    : index % 3 === 2
+                    ? "anim-delay-200"
+                    : ""
+                } group`}
+              >
                 <ServiceCard {...service} />
               </div>
             ))}
@@ -215,11 +227,6 @@ const ServicesGrid = () => {
                 <Recycle className="w-32 h-32 text-teal-600" strokeWidth={2} />
               </div>
             </div>
-          </div>
-
-          {/* "Activate Windows" watermark */}
-          <div className="absolute bottom-4 right-4 text-white/50 text-sm">
-            Activate Windows
           </div>
         </div>
       </div>

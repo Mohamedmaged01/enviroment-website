@@ -239,7 +239,11 @@ export default function RecycleHero() {
             {/* Logo */}
             <div className="flex items-center space-x-2">
               <div className="w-32 h-16 flex items-center justify-center">
-                <div className="text-2xl font-bold text-gradient">RECYCLE</div>
+                <img
+                  src="/logo-en.png"
+                  alt="REC Logo"
+                  className="h-12 w-auto object-contain"
+                />
               </div>
             </div>
             {/* Navigation Links */}
@@ -488,8 +492,8 @@ export default function RecycleHero() {
           {/* Service Grid */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
             {/* Waste Collection */}
-            <div className="text-center group card-hover stagger-1 opacity-0 animate-fade-in-up">
-              <div className="inline-flex items-center justify-center w-24 h-24 mb-6 transform group-hover:scale-110 transition-all duration-300 bg-gradient-to-br from-teal-100 to-green-100 rounded-2xl icon-bounce animate-float">
+            <div className="text-center group card-hover">
+              <div className="inline-flex items-center justify-center w-24 h-24 mb-6 bg-gradient-to-br from-teal-100 to-green-100 rounded-2xl">
                 <svg
                   className="w-12 h-12 text-teal-600"
                   viewBox="0 0 64 64"
@@ -511,10 +515,9 @@ export default function RecycleHero() {
               </p>
             </div>
             {/* Recycling Services */}
-            <div className="text-center group card-hover stagger-2 opacity-0 animate-fade-in-up">
+            <div className="text-center group card-hover">
               <div
-                className="inline-flex items-center justify-center w-24 h-24 mb-6 transform group-hover:scale-110 transition-all duration-300 bg-gradient-to-br from-teal-100 to-green-100 rounded-2xl icon-bounce"
-                style={{ animationDelay: "0.5s" }}
+                className="inline-flex items-center justify-center w-24 h-24 mb-6 bg-gradient-to-br from-teal-100 to-green-100 rounded-2xl"
               >
                 <svg
                   className="w-12 h-12 text-teal-600"
@@ -537,10 +540,9 @@ export default function RecycleHero() {
               </p>
             </div>
             {/* Environmental */}
-            <div className="text-center group card-hover stagger-3 opacity-0 animate-fade-in-up">
+            <div className="text-center group card-hover">
               <div
-                className="inline-flex items-center justify-center w-24 h-24 mb-6 transform group-hover:scale-110 transition-all duration-300 bg-gradient-to-br from-teal-100 to-green-100 rounded-2xl icon-bounce animate-float"
-                style={{ animationDelay: "1s" }}
+                className="inline-flex items-center justify-center w-24 h-24 mb-6 bg-gradient-to-br from-teal-100 to-green-100 rounded-2xl"
               >
                 <svg
                   className="w-12 h-12 text-teal-600"
@@ -563,8 +565,8 @@ export default function RecycleHero() {
               </p>
             </div>
             {/* Quality Audits */}
-            <div className="text-center group card-hover stagger-4 opacity-0 animate-fade-in-up">
-              <div className="inline-flex items-center justify-center w-24 h-24 mb-6 transform group-hover:scale-110 transition-all duration-300 bg-gradient-to-br from-teal-100 to-green-100 rounded-2xl icon-bounce">
+            <div className="text-center group card-hover">
+              <div className="inline-flex items-center justify-center w-24 h-24 mb-6 bg-gradient-to-br from-teal-100 to-green-100 rounded-2xl">
                 <svg
                   className="w-12 h-12 text-teal-600"
                   viewBox="0 0 64 64"
@@ -585,10 +587,9 @@ export default function RecycleHero() {
               </p>
             </div>
             {/* BIO Fuel Production */}
-            <div className="text-center group card-hover stagger-5 opacity-0 animate-fade-in-up">
+            <div className="text-center group card-hover">
               <div
-                className="inline-flex items-center justify-center w-24 h-24 mb-6 transform group-hover:scale-110 transition-all duration-300 bg-gradient-to-br from-teal-100 to-green-100 rounded-2xl icon-bounce animate-float"
-                style={{ animationDelay: "0.5s" }}
+                className="inline-flex items-center justify-center w-24 h-24 mb-6 bg-gradient-to-br from-teal-100 to-green-100 rounded-2xl"
               >
                 <svg
                   className="w-12 h-12 text-teal-600"
@@ -611,10 +612,9 @@ export default function RecycleHero() {
               </p>
             </div>
             {/* Sustainability */}
-            <div className="text-center group card-hover stagger-6 opacity-0 animate-fade-in-up">
+            <div className="text-center group card-hover">
               <div
-                className="inline-flex items-center justify-center w-24 h-24 mb-6 transform group-hover:scale-110 transition-all duration-300 bg-gradient-to-br from-teal-100 to-green-100 rounded-2xl icon-bounce animate-float"
-                style={{ animationDelay: "1s" }}
+                className="inline-flex items-center justify-center w-24 h-24 mb-6 bg-gradient-to-br from-teal-100 to-green-100 rounded-2xl"
               >
                 <svg
                   className="w-12 h-12 text-teal-600"
