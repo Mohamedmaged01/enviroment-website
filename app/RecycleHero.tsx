@@ -1,6 +1,6 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, Search } from "lucide-react";
 
 export default function RecycleHero() {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -287,9 +287,8 @@ export default function RecycleHero() {
                 CONTACT
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-green-600 group-hover:w-full transition-all duration-300"></span>
               </a>
-              <button className="bg-green-500 hover:bg-green-600 text-white px-6 py-2 rounded font-medium transition-all duration-300 transform hover:scale-105 hover:shadow-lg relative overflow-hidden group">
-                <span className="relative z-10">Search Engine</span>
-                <span className="absolute inset-0 bg-green-700 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
+              <button className="bg-green-500 hover:bg-green-600 text-white px-3 py-2 rounded font-medium transition-all duration-300 transform hover:scale-105 hover:shadow-lg relative overflow-hidden group flex items-center justify-center">
+                <Search className="w-6 h-6" />
               </button>
             </div>
           </div>
