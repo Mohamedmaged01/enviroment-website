@@ -1,6 +1,7 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight, Search } from "lucide-react";
+import Navbar from "./Navbar";
 
 export default function RecycleHero() {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -182,7 +183,7 @@ export default function RecycleHero() {
         }
 
         .text-gradient {
-          background: linear-gradient(135deg, #14b8a6 0%, #0d9488 100%);
+          background: linear-gradient(135deg, #31899d 0%, #4ead8b 100%);
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
           background-clip: text;
@@ -231,70 +232,7 @@ export default function RecycleHero() {
           animation-delay: 0.6s;
         }
       `}</style>
-
-      {/* Navigation */}
-      <nav className="bg-white shadow-lg relative z-50 animate-fade-in-down">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-20">
-            {/* Logo */}
-            <div className="flex items-center space-x-2">
-              <div className="w-32 h-16 flex items-center justify-center">
-                <img
-                  src="/logo-en.png"
-                  alt="REC Logo"
-                  className="h-12 w-auto object-contain"
-                />
-              </div>
-            </div>
-            {/* Navigation Links */}
-            <div className="hidden md:flex items-center space-x-8">
-              <a href="#" className="text-green-600 font-medium relative group">
-                HOME
-                <span className="absolute bottom-0 left-0 w-full h-0.5 bg-green-600 transform origin-left"></span>
-              </a>
-              <a
-                href="#"
-                className="text-gray-600 hover:text-green-600 transition-all duration-300 relative group"
-              >
-                ABOUT
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-green-600 group-hover:w-full transition-all duration-300"></span>
-              </a>
-              <a
-                href="#"
-                className="text-gray-600 hover:text-green-600 transition-all duration-300 relative group"
-              >
-                SERVICES
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-green-600 group-hover:w-full transition-all duration-300"></span>
-              </a>
-              <a
-                href="#"
-                className="text-gray-600 hover:text-green-600 transition-all duration-300 relative group"
-              >
-                ELEMENTS
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-green-600 group-hover:w-full transition-all duration-300"></span>
-              </a>
-              <a
-                href="#"
-                className="text-gray-600 hover:text-green-600 transition-all duration-300 relative group"
-              >
-                BLOG
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-green-600 group-hover:w-full transition-all duration-300"></span>
-              </a>
-              <a
-                href="#"
-                className="text-gray-600 hover:text-green-600 transition-all duration-300 relative group"
-              >
-                CONTACT
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-green-600 group-hover:w-full transition-all duration-300"></span>
-              </a>
-              <button className="bg-green-500 hover:bg-green-600 text-white px-3 py-2 rounded font-medium transition-all duration-300 transform hover:scale-105 hover:shadow-lg relative overflow-hidden group flex items-center justify-center">
-                <Search className="w-6 h-6" />
-              </button>
-            </div>
-          </div>
-        </div>
-      </nav>
-
+      <Navbar />
       {/* Hero Section with Enhanced Carousel */}
       <div className="relative h-[700px] overflow-hidden">
         {/* Carousel Slides */}
@@ -317,7 +255,7 @@ export default function RecycleHero() {
                 }}
               />
               {/* Dark Overlay with gradient */}
-              <div className="absolute inset-0 bg-gradient-to-r from-black/50 to-black/30"></div>
+              <div className="absolute inset-0 bg-linear-to-r from-black/50 to-black/30"></div>
 
               {/* Content Card - Animated */}
               <div
@@ -492,7 +430,7 @@ export default function RecycleHero() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
             {/* Waste Collection */}
             <div className="text-center group card-hover">
-              <div className="inline-flex items-center justify-center w-24 h-24 mb-6 bg-gradient-to-br from-teal-100 to-green-100 rounded-2xl">
+              <div className="inline-flex items-center justify-center w-24 h-24 mb-6 bg-linear-to-br from-teal-100 to-green-100 rounded-2xl">
                 <svg
                   className="w-12 h-12 text-teal-600"
                   viewBox="0 0 64 64"
@@ -515,9 +453,7 @@ export default function RecycleHero() {
             </div>
             {/* Recycling Services */}
             <div className="text-center group card-hover">
-              <div
-                className="inline-flex items-center justify-center w-24 h-24 mb-6 bg-gradient-to-br from-teal-100 to-green-100 rounded-2xl"
-              >
+              <div className="inline-flex items-center justify-center w-24 h-24 mb-6 bg-linear-to-br from-teal-100 to-green-100 rounded-2xl">
                 <svg
                   className="w-12 h-12 text-teal-600"
                   viewBox="0 0 64 64"
@@ -540,9 +476,7 @@ export default function RecycleHero() {
             </div>
             {/* Environmental */}
             <div className="text-center group card-hover">
-              <div
-                className="inline-flex items-center justify-center w-24 h-24 mb-6 bg-gradient-to-br from-teal-100 to-green-100 rounded-2xl"
-              >
+              <div className="inline-flex items-center justify-center w-24 h-24 mb-6 bg-linear-to-br from-teal-100 to-green-100 rounded-2xl">
                 <svg
                   className="w-12 h-12 text-teal-600"
                   viewBox="0 0 64 64"
@@ -565,7 +499,7 @@ export default function RecycleHero() {
             </div>
             {/* Quality Audits */}
             <div className="text-center group card-hover">
-              <div className="inline-flex items-center justify-center w-24 h-24 mb-6 bg-gradient-to-br from-teal-100 to-green-100 rounded-2xl">
+              <div className="inline-flex items-center justify-center w-24 h-24 mb-6 bg-linear-to-br from-teal-100 to-green-100 rounded-2xl">
                 <svg
                   className="w-12 h-12 text-teal-600"
                   viewBox="0 0 64 64"
@@ -587,9 +521,7 @@ export default function RecycleHero() {
             </div>
             {/* BIO Fuel Production */}
             <div className="text-center group card-hover">
-              <div
-                className="inline-flex items-center justify-center w-24 h-24 mb-6 bg-gradient-to-br from-teal-100 to-green-100 rounded-2xl"
-              >
+              <div className="inline-flex items-center justify-center w-24 h-24 mb-6 bg-linear-to-br from-teal-100 to-green-100 rounded-2xl">
                 <svg
                   className="w-12 h-12 text-teal-600"
                   viewBox="0 0 64 64"
@@ -612,9 +544,7 @@ export default function RecycleHero() {
             </div>
             {/* Sustainability */}
             <div className="text-center group card-hover">
-              <div
-                className="inline-flex items-center justify-center w-24 h-24 mb-6 bg-gradient-to-br from-teal-100 to-green-100 rounded-2xl"
-              >
+              <div className="inline-flex items-center justify-center w-24 h-24 mb-6 bg-linear-to-br from-teal-100 to-green-100 rounded-2xl">
                 <svg
                   className="w-12 h-12 text-teal-600"
                   viewBox="0 0 64 64"

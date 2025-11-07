@@ -161,7 +161,7 @@ export default function LatestNews() {
             radial-gradient(circle at 80% 80%, rgba(22, 163, 74, 0.05) 0%, transparent 50%);
         }
         .gradient-text {
-          background: linear-gradient(135deg, #059669, #10b981, #34d399);
+          background: linear-gradient(135deg, #31899D, #4EAD8B, #31899D);
           background-size: 200% 200%;
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
@@ -180,13 +180,13 @@ export default function LatestNews() {
               LATEST <span className="gradient-text">NEWS</span>
             </h2>
             <div className="relative h-1 w-16 mx-auto bg-gray-200 rounded-full overflow-hidden">
-              <div className="absolute inset-0 bg-linear-to-r from-green-400 via-green-600 to-green-400 underline-animate"></div>
+              <div className="absolute inset-0 bg-linear-to-r from-[#31899D] via-[#4EAD8B] to-[#31899D] underline-animate"></div>
             </div>
           </div>
           <div className="flex-1 flex justify-end gap-3">
             <button
               onClick={() => setCurrentSlide(Math.max(0, currentSlide - 1))}
-              className="nav-btn bg-green-600 text-white p-3 rounded-full hover:bg-green-700 disabled:opacity-50 shadow-lg"
+              className="nav-btn bg-primary text-white p-3 rounded-full hover:bg-secondary disabled:opacity-50 shadow-lg"
               disabled={currentSlide === 0}
             >
               <ChevronLeft className="w-5 h-5" />
@@ -197,7 +197,7 @@ export default function LatestNews() {
                   Math.min(newsItems.length - 3, currentSlide + 1)
                 )
               }
-              className="nav-btn bg-green-600 text-white p-3 rounded-full hover:bg-green-700 disabled:opacity-50 shadow-lg"
+              className="nav-btn bg-primary text-white p-3 rounded-full hover:bg-secondary disabled:opacity-50 shadow-lg"
               disabled={currentSlide >= newsItems.length - 3}
             >
               <ChevronRight className="w-5 h-5" />

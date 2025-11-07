@@ -1,5 +1,5 @@
-'use client';
-import React from "react";
+"use client";
+import { useState, useRef } from "react";
 import {
   Leaf,
   TrendingUp,
@@ -12,104 +12,69 @@ import {
   Sparkles,
 } from "lucide-react";
 
-type FeatureItemProps = {
-  icon: React.ComponentType<{ className?: string }>;
-  title: string;
-  description: string;
-  index: number;
-};
+export default function WhyREC() {
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const [isAnimating, setIsAnimating] = useState(false);
+  const contentRefs = useRef<Array<HTMLDivElement | null>>([]);
 
-const FeatureItem: React.FC<FeatureItemProps> = ({ icon: Icon, title, description, index }) => {
-  return (
-    <div
-      className="flex gap-4 group cursor-pointer feature-card"
-      style={{ animationDelay: `${index * 0.1}s` }}
-    >
-      <div className="flex-shrink-0 pt-1 relative">
-        <div className="icon-wrapper w-12 h-12 bg-gradient-to-br from-teal-500 to-emerald-500 rounded-xl flex items-center justify-center shadow-lg relative overflow-hidden">
-          {/* Animated background */}
-          <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-          {/* Ripple effect */}
-          <div className="absolute inset-0 rounded-xl ripple-ring"></div>
-          <Icon className="w-5 h-5 text-white relative z-10 icon-bounce" />
-          {/* Corner accent */}
-          <div className="absolute top-0 right-0 w-3 h-3 bg-white/30 rounded-bl-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-        </div>
-        {/* Connecting line */}
-        <div className="absolute top-14 left-1/2 transform -translate-x-1/2 w-0.5 h-full bg-gradient-to-b from-teal-200 to-transparent opacity-0 group-hover:opacity-50 transition-opacity duration-500"></div>
-      </div>
-      <div className="flex-1 pb-2">
-        <h4 className="font-bold text-gray-800 text-base mb-2 group-hover:text-teal-600 transition-colors duration-300 flex items-center gap-2">
-          {title}
-          <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transform translate-x-0 group-hover:translate-x-1 transition-all duration-300" />
-        </h4>
-        <p className="text-gray-600 text-sm leading-relaxed group-hover:text-gray-700 transition-colors duration-300">
-          {description}
-        </p>
-      </div>
-    </div>
-  );
-};
+  const handleAccordionClick = (index: number) => {
+    if (isAnimating) return;
 
-type ActiveButtonType = "learn" | "contact" | null;
+    setIsAnimating(true);
+    setOpenIndex(openIndex === index ? null : index);
 
-const WhyREC: React.FC = () => {
-  const [activeButton, setActiveButton] = React.useState<ActiveButtonType>(null);
+    setTimeout(() => {
+      setIsAnimating(false);
+    }, 500);
+  };
 
-  const features: FeatureItemProps[] = [
+  const features = [
     {
       icon: Leaf,
       title: "Environmental Impact:",
       description:
         "REC play a crucial role in helping businesses minimize their environmental impact through expert advice and solutions.",
-      index: 0,
     },
     {
       icon: TrendingUp,
       title: "Sustainable Development:",
       description:
         "We assist clients in adopting sustainable practices, incorporating eco-friendly technologies and energy-efficient processes.",
-      index: 1,
     },
     {
       icon: Lightbulb,
       title: "Problem Solving:",
       description:
         "Our consultants assess environmental issues and develop innovative solutions to environmental challenges.",
-      index: 2,
     },
     {
       icon: Briefcase,
       title: "Diverse Projects:",
       description:
         "We cover environmental impact assessments, site remediation, water resource management, and renewable energy projects.",
-      index: 3,
     },
     {
       icon: GraduationCap,
       title: "Educational Role:",
       description:
         "We educate clients about environmental issues and best practices, promoting environmental stewardship.",
-      index: 4,
     },
     {
       icon: Users,
       title: "Collaboration:",
       description:
         "We collaborate with experts from diverse fields, fostering a collaborative work environment for continuous learning.",
-      index: 5,
     },
     {
       icon: Globe,
       title: "Global Relevance:",
       description:
         "We work on international projects, addressing environmental challenges and contributing to global sustainability efforts.",
-      index: 6,
     },
   ];
 
   return (
-    <div className="py-20 bg-gradient-to-br from-gray-50 via-white to-teal-50/30 relative overflow-hidden">
+    <div className="py-20 bg-white relative overflow-hidden">
       <style>{`
         @keyframes fadeInUp {
           from { opacity: 0; transform: translateY(30px); }
@@ -119,22 +84,6 @@ const WhyREC: React.FC = () => {
           0%, 100% { transform: translate(0, 0) rotate(0deg); }
           33% { transform: translate(30px, -30px) rotate(5deg); }
           66% { transform: translate(-20px, 20px) rotate(-5deg); }
-        }
-        @keyframes pulse {
-          0%, 100% { transform: scale(1); }
-          50% { transform: scale(1.05); }
-        }
-        @keyframes shimmer {
-          0% { transform: translateX(-100%); }
-          100% { transform: translateX(100%); }
-        }
-        @keyframes iconBounce {
-          0%, 100% { transform: translateY(0); }
-          50% { transform: translateY(-4px); }
-        }
-        @keyframes ripple {
-          0% { transform: scale(0.8); opacity: 1; }
-          100% { transform: scale(1.5); opacity: 0; }
         }
         @keyframes slideInLeft {
           from { opacity: 0; transform: translateX(-30px); }
@@ -156,74 +105,69 @@ const WhyREC: React.FC = () => {
           0%, 100% { opacity: 0; transform: scale(0) rotate(0deg); }
           50% { opacity: 1; transform: scale(1) rotate(180deg); }
         }
+        @keyframes contentReveal {
+          0% { opacity: 0; transform: translateY(-8px); }
+          100% { opacity: 1; transform: translateY(0); }
+        }
+        
         .feature-card {
           animation: fadeInUp 0.6s ease-out backwards;
-          transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
-        .feature-card:hover {
-          transform: translateX(8px);
-        }
+        
         .icon-wrapper {
           transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
+        
         .feature-card:hover .icon-wrapper {
           transform: scale(1.1) rotate(5deg);
           box-shadow: 0 20px 25px -5px rgba(20, 184, 166, 0.4);
         }
-        .icon-bounce {
-          animation: iconBounce 2s ease-in-out infinite;
-        }
-        .ripple-ring {
-          animation: ripple 2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
-        }
-        .floating-shape {
+        
+        .floating-shape, .floating-shape-delayed, .floating-shape-slow {
           animation: float 20s ease-in-out infinite;
         }
+        
         .floating-shape-delayed {
-          animation: float 25s ease-in-out infinite 5s;
+          animation-delay: 5s;
+          animation-duration: 25s;
         }
+        
         .floating-shape-slow {
-          animation: float 30s ease-in-out infinite 10s;
+          animation-delay: 10s;
+          animation-duration: 30s;
         }
+        
         .title-animate {
           animation: scaleIn 0.8s ease-out;
         }
+        
         .subtitle-animate {
           animation: slideInLeft 0.8s ease-out 0.2s backwards;
         }
+        
         .underline-animate {
           animation: slideInRight 0.8s ease-out 0.4s backwards;
         }
+        
         .cta-animate {
           animation: fadeInUp 0.8s ease-out 0.6s backwards;
         }
+        
         .gradient-text {
-          background: linear-gradient(135deg, #14b8a6, #10b981, #14b8a6);
+          background: linear-gradient(135deg, #31899D, #4EAD8B, #31899D);
           background-size: 200% 200%;
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
           background-clip: text;
           animation: gradientShift 3s ease infinite;
         }
-        .shimmer-effect {
-          position: relative;
-          overflow: hidden;
-        }
-        .shimmer-effect::before {
-          content: '';
-          position: absolute;
-          top: 0;
-          left: -100%;
-          width: 100%;
-          height: 100%;
-          background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
-          animation: shimmer 3s infinite;
-        }
-        .btn-primary {
+        
+        .btn-primary, .btn-secondary {
           position: relative;
           overflow: hidden;
           transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
+        
         .btn-primary::before {
           content: '';
           position: absolute;
@@ -236,19 +180,20 @@ const WhyREC: React.FC = () => {
           transform: translate(-50%, -50%);
           transition: width 0.6s, height 0.6s;
         }
+        
         .btn-primary:hover::before {
           width: 300px;
           height: 300px;
         }
-        .btn-primary:hover {
+        
+        .btn-primary:hover, .btn-secondary:hover {
           transform: translateY(-2px);
+        }
+        
+        .btn-primary:hover {
           box-shadow: 0 20px 25px -5px rgba(20, 184, 166, 0.4);
         }
-        .btn-secondary {
-          position: relative;
-          overflow: hidden;
-          transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
+        
         .btn-secondary::before {
           content: '';
           position: absolute;
@@ -259,30 +204,77 @@ const WhyREC: React.FC = () => {
           background: linear-gradient(90deg, transparent, rgba(20, 184, 166, 0.1), transparent);
           transition: left 0.5s;
         }
+        
         .btn-secondary:hover::before {
           left: 100%;
         }
+        
         .btn-secondary:hover {
-          transform: translateY(-2px);
           box-shadow: 0 10px 20px -5px rgba(20, 184, 166, 0.2);
-          border-color: #14b8a6;
+          border-color: #31899D;
         }
+        
         .sparkle-icon {
           animation: sparkle 2s ease-in-out infinite;
         }
+        
         .decorative-circle {
           position: absolute;
           border-radius: 50%;
           background: radial-gradient(circle, rgba(20, 184, 166, 0.1), transparent);
         }
+        
+        .accordion-content {
+          overflow: hidden;
+          transition: max-height 0.5s cubic-bezier(0.65, 0, 0.35, 1),
+                      opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .accordion-content.open {
+          max-height: 500px;
+          opacity: 1;
+        }
+        
+        .accordion-content.closed {
+          max-height: 0;
+          opacity: 0;
+        }
+        
+        .accordion-inner {
+          transform-origin: top;
+          transition: transform 0.5s cubic-bezier(0.65, 0, 0.35, 1),
+                      opacity 0.3s ease-out;
+        }
+        
+        .accordion-content.open .accordion-inner {
+          transform: translateY(0) scaleY(1);
+          opacity: 1;
+        }
+        
+        .accordion-content.closed .accordion-inner {
+          transform: translateY(-10px) scaleY(0.8);
+          opacity: 0;
+        }
+        
+        .accordion-border {
+          transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .accordion-border.open {
+          border-color: #14b8a6;
+          box-shadow: 0 4px 6px -1px rgba(20, 184, 166, 0.1),
+                      0 2px 4px -1px rgba(20, 184, 166, 0.06);
+        }
+        
+        .content-reveal {
+          animation: contentReveal 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        }
       `}</style>
 
-      {/* Background decorations */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-0 right-0 w-96 h-96 bg-teal-100 rounded-full opacity-20 blur-3xl floating-shape"></div>
         <div className="absolute bottom-0 left-0 w-96 h-96 bg-green-100 rounded-full opacity-20 blur-3xl floating-shape-delayed"></div>
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-emerald-100 rounded-full opacity-10 blur-3xl floating-shape-slow"></div>
-        {/* Decorative circles */}
         <div
           className="decorative-circle"
           style={{ width: "200px", height: "200px", top: "10%", left: "5%" }}
@@ -299,7 +291,6 @@ const WhyREC: React.FC = () => {
       </div>
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* Header */}
         <div className="mb-16 text-center">
           <div className="flex items-center justify-center gap-2 mb-3 subtitle-animate">
             <Sparkles className="w-4 h-4 text-teal-600 sparkle-icon" />
@@ -315,11 +306,10 @@ const WhyREC: React.FC = () => {
           <h2 className="text-5xl md:text-6xl font-bold text-gray-800 mb-4 title-animate">
             Why <span className="gradient-text">REC?</span>
           </h2>
-
           <div className="flex items-center justify-center gap-3 underline-animate">
             <div className="h-1 w-20 bg-gradient-to-r from-transparent to-teal-500 rounded-full"></div>
             <div className="h-2 w-2 bg-teal-500 rounded-full"></div>
-            <div className="h-1 w-20 bg-gradient-to-l from-transparent to-teal-500 rounded-full"></div>
+            <div className="h-1 w-20 bg-gradient-to-l from-teal-500 to-transparent rounded-full"></div>
           </div>
 
           <p
@@ -331,29 +321,76 @@ const WhyREC: React.FC = () => {
           </p>
         </div>
 
-        {/* Features Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8 mb-12">
-          {features.map((feature, index) => (
-            <FeatureItem key={index} {...feature} index={index} />
-          ))}
+          {features.map((feature, index) => {
+            const Icon = feature.icon;
+            return (
+              <div
+                key={index}
+                className="feature-card"
+                style={{ animationDelay: `${index * 0.1}s` }}
+              >
+                <button
+                  className={`w-full flex items-center gap-4 p-4 rounded-lg bg-white shadow group focus:outline-none border-2 transition-all accordion-border ${
+                    openIndex === index
+                      ? "open border-teal-500"
+                      : "border-gray-200 hover:border-teal-300"
+                  }`}
+                  onClick={() => handleAccordionClick(index)}
+                  aria-expanded={openIndex === index}
+                  type="button"
+                  disabled={isAnimating}
+                >
+                  <div className="icon-wrapper w-12 h-12 bg-gradient-to-br from-teal-500 to-emerald-500 rounded-xl flex items-center justify-center shadow-lg">
+                    <Icon className="w-5 h-5 text-white relative z-10" />
+                  </div>
+                  <span className="font-bold text-gray-800 text-base flex-1 text-left group-hover:text-teal-600 transition-colors duration-300">
+                    {feature.title}
+                  </span>
+                  <ArrowRight
+                    className={`w-5 h-5 ml-2 transition-all duration-500 ease-out ${
+                      openIndex === index
+                        ? "rotate-90 text-teal-600 scale-110"
+                        : "text-gray-400 group-hover:text-teal-500 group-hover:translate-x-0.5"
+                    }`}
+                  />
+                </button>
+                <div
+                  ref={(el) => {
+                    contentRefs.current[index] = el;
+                  }}
+                  className={`accordion-content bg-white rounded-b-lg border-x-2 border-b-2 ${
+                    openIndex === index
+                      ? "open border-teal-500"
+                      : "closed border-transparent"
+                  }`}
+                  style={{
+                    maxHeight:
+                      openIndex === index
+                        ? `${contentRefs.current[index]?.scrollHeight ?? 0}px`
+                        : "0px",
+                  }}
+                >
+                  <div
+                    className={`accordion-inner px-4 pb-4 pt-2 text-gray-600 leading-relaxed ${
+                      openIndex === index ? "content-reveal" : ""
+                    }`}
+                  >
+                    {feature.description}
+                  </div>
+                </div>
+              </div>
+            );
+          })}
         </div>
 
-        {/* Call to Action */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center cta-animate">
-          <button
-            className="btn-primary bg-gradient-to-r from-teal-600 to-emerald-600 hover:from-teal-700 hover:to-emerald-700 text-white px-8 py-3.5 rounded-xl font-semibold shadow-lg flex items-center gap-2 group relative z-10"
-            onMouseEnter={() => setActiveButton("learn")}
-            onMouseLeave={() => setActiveButton(null)}
-          >
+          <button className="btn-primary bg-gradient-to-r from-teal-600 to-emerald-600 hover:from-teal-700 hover:to-emerald-700 text-white px-8 py-3.5 rounded-xl font-semibold shadow-lg flex items-center gap-2 group relative z-10">
             <span className="relative z-10">Learn More</span>
             <ArrowRight className="w-5 h-5 relative z-10 transition-transform duration-300 group-hover:translate-x-1" />
           </button>
 
-          <button
-            className="btn-secondary border-2 border-teal-600 text-teal-600 hover:text-teal-700 px-8 py-3.5 rounded-xl font-semibold flex items-center gap-2 group bg-white relative z-10"
-            onMouseEnter={() => setActiveButton("contact")}
-            onMouseLeave={() => setActiveButton(null)}
-          >
+          <button className="btn-secondary border-2 border-teal-600 text-teal-600 hover:text-teal-700 px-8 py-3.5 rounded-xl font-semibold flex items-center gap-2 group bg-white relative z-10">
             <span className="relative z-10">Contact Us</span>
             <ArrowRight className="w-5 h-5 relative z-10 transition-transform duration-300 group-hover:translate-x-1" />
           </button>
@@ -361,6 +398,4 @@ const WhyREC: React.FC = () => {
       </div>
     </div>
   );
-};
-
-export default WhyREC;
+}

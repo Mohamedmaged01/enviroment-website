@@ -14,6 +14,8 @@ export default function RecyclingArticles() {
 
   const articles = [
     {
+      image:
+        "https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?auto=format&fit=crop&w=1920&q=80",
       date: "11/2025",
       category: "POST | FORMATS | RECYCLING",
       title: "Recycling basics",
@@ -22,6 +24,8 @@ export default function RecyclingArticles() {
       readTime: "5 min read",
     },
     {
+      image:
+        "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=1920&q=80",
       date: "11/2025",
       category: "RECYCLING",
       title: "Waste Collection Today",
@@ -30,6 +34,8 @@ export default function RecyclingArticles() {
       readTime: "3 min read",
     },
     {
+      image:
+        "https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=1920&q=80",
       date: "11/2025",
       category: "RECYCLING",
       title: "How to Recycle Paper",
@@ -48,7 +54,7 @@ export default function RecyclingArticles() {
   };
 
   return (
-    <div className="relative bg-gradient-to-br from-emerald-400 via-teal-500 to-green-500 min-h-screen overflow-hidden">
+    <div className="relative bg-linear-to-br from-emerald-400 via-teal-500 to-green-500 min-h-screen overflow-hidden">
       <style>{`
         @keyframes float {
           0%, 100% { transform: translate(0, 0) scale(1); }
@@ -116,7 +122,7 @@ export default function RecyclingArticles() {
         .anim-delay-400 { animation-delay: 0.4s; }
         
         .shimmer-btn {
-          background: linear-gradient(90deg, #a3e635 0%, #bef264 50%, #a3e635 100%);
+          background: linear-gradient(90deg, #31899D 0%, #4EAD8B 50%, #31899D 100%);
           background-size: 200% 100%;
           animation: shimmer 3s linear infinite;
         }
@@ -170,7 +176,7 @@ export default function RecyclingArticles() {
         .date-badge {
           position: relative;
           display: inline-block;
-          background: linear-gradient(135deg, #10b981, #14b8a6);
+          background: linear-gradient(135deg, #4EAD8B, #31899D);
           background-size: 200% 200%;
           animation: gradientShift 3s ease infinite;
         }
@@ -256,7 +262,7 @@ export default function RecyclingArticles() {
         }
         
         .title-gradient {
-          background: linear-gradient(135deg, #ffffff, #f0fdf4);
+          background: linear-gradient(135deg, #ffffff, #e6f7f2);
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
           background-clip: text;
@@ -280,7 +286,7 @@ export default function RecyclingArticles() {
           top: 0;
           left: 0;
           border-width: 0 0 0 0;
-          border-color: transparent transparent transparent #10b981;
+          border-color: transparent transparent transparent #4EAD8B;
         }
         
         .card-hover:hover .card-corner-tl {
@@ -291,7 +297,7 @@ export default function RecyclingArticles() {
           bottom: 0;
           right: 0;
           border-width: 0 0 0 0;
-          border-color: transparent #10b981 transparent transparent;
+          border-color: transparent #4EAD8B transparent transparent;
         }
         
         .card-hover:hover .card-corner-br {
@@ -356,6 +362,12 @@ export default function RecyclingArticles() {
                   : ""
               }`}
             >
+              {/* Article Image */}
+              <img
+                src={article.image}
+                alt={article.title}
+                className="w-full h-40 object-cover rounded-lg mb-4"
+              />
               {/* Corner decorations */}
               <div className="card-corner card-corner-tl"></div>
               <div className="card-corner card-corner-br"></div>

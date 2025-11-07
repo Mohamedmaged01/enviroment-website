@@ -1,257 +1,146 @@
-import React from "react";
-import {
-  Trash2,
-  Recycle,
-  Leaf,
-  Globe,
-  FlaskConical,
-  CheckCircle,
-} from "lucide-react";
+"use client";
+import { useState, useEffect, useRef } from "react";
 
-interface ServiceCardProps {
-  icon: React.ElementType;
-  title: string;
-  description?: string | null;
-  showButton: boolean;
-}
+export default function AnimatedStats() {
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef(null);
 
-const ServiceCard: React.FC<ServiceCardProps> = ({
-  icon: Icon,
-  title,
-  description,
-  showButton,
-}) => (
-  <div className="text-center text-white p-8 transition-all duration-300 transform hover:-translate-y-1 hover:scale-[1.02] animate-fade-in rounded-lg hover-bg-shift-dark shadow-soft shadow-soft-hover ring-teal-hover">
-    <div className="mb-6 flex justify-center">
-      <Icon
-        className="w-20 h-20 transition-transform duration-500 group-hover:rotate-6 group-hover:-translate-y-1"
-        strokeWidth={1.5}
-      />
-    </div>
-    <h3 className="text-2xl font-semibold mb-4">{title}</h3>
-  </div>
-);
-
-const ServicesGrid = () => {
-  const services = [
-    {
-      icon: Trash2,
-      title: "Waste Management",
-      description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.",
-      showButton: true,
-    },
-    {
-      icon: Recycle,
-      title: "Recycling Services",
-      description: null,
-      showButton: false,
-    },
-    {
-      icon: Leaf,
-      title: "Environmental Quality",
-      description: null,
-      showButton: false,
-    },
-    {
-      icon: Globe,
-      title: "Sustainability",
-      description: null,
-      showButton: false,
-    },
-    {
-      icon: FlaskConical,
-      title: "Laboratory Analyses",
-      description: null,
-      showButton: false,
-    },
-    {
-      icon: CheckCircle,
-      title: "Complience",
-      description: null,
-      showButton: false,
-    },
+  const stats = [
+    { value: 200, label: "Team member", suffix: "+" },
+    { value: 10, label: "Complete project", suffix: "+" },
+    { value: 20, label: "Winning award", suffix: "+" },
+    { value: 20, label: "Winning award", suffix: "+" },
   ];
 
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.3 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, []);
+
   return (
-    <div className="relative">
-      {/* Zigzag pattern at top */}
-      <div className="absolute top-0 left-0 right-0 h-8 bg-teal-600 overflow-hidden z-10">
-        <svg
-          viewBox="0 0 1200 32"
-          className="w-full h-full"
-          preserveAspectRatio="none"
-        >
-          <pattern
-            id="zigzag-top"
-            x="0"
-            y="0"
-            width="40"
-            height="32"
-            patternUnits="userSpaceOnUse"
-          >
-            <polygon points="0,32 20,0 40,32" fill="#ffffff" />
-          </pattern>
-          <rect width="1200" height="32" fill="url(#zigzag-top)" />
-        </svg>
-      </div>
-      <div className="grid grid-cols-1 lg:grid-cols-2">
-        {/* Left side - Services Grid with Teal Background */}
-        <div className="bg-teal-600 relative">
-          {/* Background world map watermark */}
-          <div className="absolute inset-0 opacity-10 overflow-hidden">
-            <svg viewBox="0 0 800 600" className="w-full h-full">
-              <circle
-                cx="400"
-                cy="300"
-                r="200"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1"
-              />
-              <circle
-                cx="400"
-                cy="300"
-                r="150"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1"
-              />
-              <circle
-                cx="400"
-                cy="300"
-                r="100"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1"
-              />
-              <line
-                x1="200"
-                y1="300"
-                x2="600"
-                y2="300"
-                stroke="currentColor"
-                strokeWidth="1"
-              />
-              <line
-                x1="400"
-                y1="100"
-                x2="400"
-                y2="500"
-                stroke="currentColor"
-                strokeWidth="1"
-              />
-              <ellipse
-                cx="400"
-                cy="300"
-                rx="200"
-                ry="80"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1"
-              />
-              <ellipse
-                cx="400"
-                cy="300"
-                rx="200"
-                ry="120"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1"
-              />
-            </svg>
-          </div>
-          <div className="grid grid-cols-3 relative z-10">
-            {services.map((service, index) => (
-              <div
-                key={index}
-                className={`${
-                  index % 3 === 1
-                    ? "anim-delay-100"
-                    : index % 3 === 2
-                    ? "anim-delay-200"
-                    : ""
-                } group`}
-              >
-                <ServiceCard {...service} />
-              </div>
-            ))}
-          </div>
-        </div>
-        {/* Right side - Image with Recycle Symbol */}
-        <div className="relative h-full min-h-[600px]">
-          {/* Overlay */}
-          <div className="absolute inset-0 bg-black/30 animate-fade-in">
-            {/* Example image from slider */}
-            <img
-              src="https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?auto=format&fit=crop&w=1920&q=80"
-              alt="Environmental Service"
-              className="w-full h-full object-cover"
+    <div className="min-h-screen bg-gray-100 flex items-center justify-center p-4">
+      <div
+        ref={sectionRef}
+        className="w-full max-w-7xl bg-primary bg-linear-to-br from-primary to-secondary rounded-3xl shadow-2xl p-12 md:p-16 relative overflow-hidden"
+      >
+        <style>{`
+          @keyframes countUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+          }
+          
+          @keyframes dotPattern {
+            0%, 100% { opacity: 0.3; transform: translate(0, 0); }
+            50% { opacity: 0.5; transform: translate(10px, -10px); }
+          }
+          
+          .dot-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 200px;
+            height: 200px;
+            background-image: radial-gradient(circle, rgba(255, 255, 255, 0.3) 2px, transparent 2px);
+            background-size: 20px 20px;
+            animation: dotPattern 4s ease-in-out infinite;
+          }
+          
+          .stat-item {
+            animation: countUp 0.6s ease-out backwards;
+          }
+        `}</style>
+
+        {/* Decorative dot pattern */}
+        <div className="dot-pattern"></div>
+
+        {/* Stats Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 relative z-10">
+          {stats.map((stat, index) => (
+            <StatCounter
+              key={index}
+              value={stat.value}
+              label={stat.label}
+              suffix={stat.suffix}
+              delay={index * 0.2}
+              isVisible={isVisible}
             />
-          </div>
-          {/* Recycle Symbol with Hexagon */}
-          <div className="absolute inset-0 flex items-center justify-center animate-scale-in anim-delay-200">
-            <div className="relative">
-              {/* Hexagon outline */}
-              <svg
-                width="400"
-                height="400"
-                viewBox="0 0 400 400"
-                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
-              >
-                <defs>
-                  <style>{`
-                    @keyframes dash {
-                      to {
-                        stroke-dashoffset: 0;
-                      }
-                    }
-                    .hexagon-path {
-                      stroke-dasharray: 1200;
-                      stroke-dashoffset: 1200;
-                      animation: dash 3s ease-in-out infinite;
-                    }
-                  `}</style>
-                </defs>
-                <polygon
-                  points="200,50 350,125 350,275 200,350 50,275 50,125"
-                  fill="none"
-                  stroke="white"
-                  strokeWidth="2"
-                  strokeDasharray="10,5"
-                  className="hexagon-path"
-                />
-              </svg>
-              {/* Recycle Icon */}
-              <div className="relative z-10 bg-white/90 rounded-full p-12 backdrop-blur-sm">
-                <Recycle className="w-32 h-32 text-teal-600" strokeWidth={2} />
-              </div>
-            </div>
-          </div>
+          ))}
         </div>
-      </div>
-      {/* Zigzag pattern at bottom */}
-      <div className="absolute bottom-0 left-0 right-0 h-8 bg-white overflow-hidden z-10">
-        <svg
-          viewBox="0 0 1200 32"
-          className="w-full h-full"
-          preserveAspectRatio="none"
-        >
-          <pattern
-            id="zigzag-bottom"
-            x="0"
-            y="0"
-            width="40"
-            height="32"
-            patternUnits="userSpaceOnUse"
-          >
-            <polygon points="0,0 20,32 40,0" fill="#0d9488" />
-          </pattern>
-          <rect width="1200" height="32" fill="url(#zigzag-bottom)" />
-        </svg>
       </div>
     </div>
   );
+}
+
+type StatCounterProps = {
+  value: number;
+  label: string;
+  suffix: string;
+  delay: number;
+  isVisible: boolean;
 };
 
-export default ServicesGrid;
+function StatCounter({ value, label, suffix, delay, isVisible }: StatCounterProps) {
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    if (!isVisible) return;
+
+    let startTime: number | undefined;
+    const duration = 2000; // 2 seconds
+
+    const animate = (timestamp: number) => {
+      if (startTime === undefined) startTime = timestamp;
+      const progress = timestamp - startTime;
+      const percentage = Math.min(progress / duration, 1);
+
+      // Easing function for smooth animation
+      const easeOutQuart = 1 - Math.pow(1 - percentage, 4);
+      const currentCount = Math.floor(easeOutQuart * value);
+
+      setCount(currentCount);
+
+      if (percentage < 1) {
+        requestAnimationFrame(animate);
+      } else {
+        setCount(value);
+      }
+    };
+
+    const timeoutId = setTimeout(() => {
+      requestAnimationFrame(animate);
+    }, delay * 1000);
+
+    return () => clearTimeout(timeoutId);
+  }, [value, delay, isVisible]);
+
+  return (
+    <div
+      className="stat-item text-center"
+      style={{ animationDelay: `${delay}s` }}
+    >
+      <div className="text-5xl md:text-6xl font-bold text-white mb-2">
+        {count}
+        {suffix}
+      </div>
+      <div className="text-lg md:text-xl text-primary/90 font-medium">
+        {label}
+      </div>
+    </div>
+  );
+}
