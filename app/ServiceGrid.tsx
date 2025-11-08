@@ -126,17 +126,7 @@ export default function ServicesSection() {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Header */}
-        <div className="text-center mb-16">
-          <p className="text-green-600 font-semibold text-sm tracking-wider uppercase mb-3">
-            OUR SERVICES
-          </p>
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-            Preserving The Earth For
-            <br />
-            Future Generations
-          </h2>
-        </div>
-
+      
         {/* Services Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {services.map((service, index) => {
