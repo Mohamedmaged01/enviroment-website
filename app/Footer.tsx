@@ -214,7 +214,7 @@ export default function EcofineFooter() {
             </a>
             <span>|</span>
             <a href="https://www.scadaatech.com/" className="hover:text-primary transition" target="_blank" rel="noopener noreferrer">
-              www.scadaatech.com
+            developed by :   www.scadaatech.com
             </a>
           </div>
         </div>
