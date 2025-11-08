@@ -12,7 +12,7 @@ export default function Home() {
       <RecycleHero />
       <RecyclingArticles />
       <LatestNews />
-      {/* <BetterRecycling /> */}
+      <BetterRecycling />
       <ServicesGrid />
       <WhyREC />
       <Footer />

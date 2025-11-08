@@ -31,21 +31,7 @@ const BetterRecycling = () => {
   ];
 
   return (
-    <div className="bg-gradient-to-b from-gray-100 to-gray-200 py-20 px-4 relative overflow-hidden">
-      {/* Decorative wave pattern at top */}
-      <div className="absolute top-0 left-0 right-0 h-12">
-        <svg viewBox="0 0 1200 60" className="w-full h-full fill-white">
-          <path d="M0,30 Q30,0 60,30 T120,30 T180,30 T240,30 T300,30 T360,30 T420,30 T480,30 T540,30 T600,30 T660,30 T720,30 T780,30 T840,30 T900,30 T960,30 T1020,30 T1080,30 T1140,30 T1200,30 L1200,0 L0,0 Z" />
-        </svg>
-      </div>
-
-      {/* Decorative wave pattern at bottom */}
-      <div className="absolute bottom-0 left-0 right-0 h-12">
-        <svg viewBox="0 0 1200 60" className="w-full h-full fill-white">
-          <path d="M0,30 Q30,60 60,30 T120,30 T180,30 T240,30 T300,30 T360,30 T420,30 T480,30 T540,30 T600,30 T660,30 T720,30 T780,30 T840,30 T900,30 T960,30 T1020,30 T1080,30 T1140,30 T1200,30 L1200,60 L0,60 Z" />
-        </svg>
-      </div>
-
+    <div className="bg-linear-to-b from-gray-100 to-gray-200 py-20 px-4 relative overflow-hidden">
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           {/* Left Column - Text Content */}

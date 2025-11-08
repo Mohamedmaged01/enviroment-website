@@ -5,15 +5,16 @@ import {
   Linkedin,
   Instagram,
   ChevronDown,
+  Search,
 } from "lucide-react";
 
 export default function EcofineNavbar() {
   const [activeMenu, setActiveMenu] = useState("Home");
 
   return (
-    <nav className="bg-gradient-to-r from-teal-900 via-teal-800 to-teal-900">
+    <nav className="bg-white border-b border-gray-200">
       {/* Top Bar */}
-      <div className="border-b border-teal-700">
+      <div className="bg-linear-to-r from-teal-900 via-teal-800 to-teal-900">
         <div className="container mx-auto px-6">
           <div className="flex justify-between items-center h-12 text-sm">
             {/* Left - Address and Hotline */}
@@ -28,25 +29,25 @@ export default function EcofineNavbar() {
               <span className="text-gray-300">Follow On :</span>
               <a
                 href="#"
-                className="text-gray-300 hover:text-green-400 transition"
+                className="text-gray-300 hover:text-[#5EC198] transition"
               >
                 <Facebook className="w-4 h-4" />
               </a>
               <a
                 href="#"
-                className="text-gray-300 hover:text-green-400 transition"
+                className="text-gray-300 hover:text-[#5EC198] transition"
               >
                 <Twitter className="w-4 h-4" />
               </a>
               <a
                 href="#"
-                className="text-gray-300 hover:text-green-400 transition"
+                className="text-gray-300 hover:text-[#5EC198] transition"
               >
                 <Linkedin className="w-4 h-4" />
               </a>
               <a
                 href="#"
-                className="text-gray-300 hover:text-green-400 transition"
+                className="text-gray-300 hover:text-[#5EC198] transition"
               >
                 <Instagram className="w-4 h-4" />
               </a>
@@ -71,8 +72,8 @@ export default function EcofineNavbar() {
             <div className="relative">
               <button
                 onClick={() => setActiveMenu("Home")}
-                className={`flex items-center gap-1 text-white font-medium hover:text-green-400 transition ${
-                  activeMenu === "Home" ? "text-green-400" : ""
+                className={`flex items-center gap-1 text-teal-900 font-medium hover:text-[#5EC198] transition ${
+                  activeMenu === "Home" ? "text-[#5EC198]" : ""
                 }`}
               >
                 Home
@@ -83,8 +84,8 @@ export default function EcofineNavbar() {
             {/* About Us */}
             <button
               onClick={() => setActiveMenu("About Us")}
-              className={`text-white font-medium hover:text-green-400 transition ${
-                activeMenu === "About Us" ? "text-green-400" : ""
+              className={`text-teal-900 font-medium hover:text-[#5EC198] transition ${
+                activeMenu === "About Us" ? "text-[#5EC198]" : ""
               }`}
             >
               About Us
@@ -93,8 +94,8 @@ export default function EcofineNavbar() {
             {/* Service */}
             <button
               onClick={() => setActiveMenu("Service")}
-              className={`text-white font-medium hover:text-green-400 transition ${
-                activeMenu === "Service" ? "text-green-400" : ""
+              className={`text-teal-900 font-medium hover:text-[#5EC198] transition ${
+                activeMenu === "Service" ? "text-[#5EC198]" : ""
               }`}
             >
               Service
@@ -104,8 +105,8 @@ export default function EcofineNavbar() {
             <div className="relative">
               <button
                 onClick={() => setActiveMenu("Page")}
-                className={`flex items-center gap-1 text-white font-medium hover:text-green-400 transition ${
-                  activeMenu === "Page" ? "text-green-400" : ""
+                className={`flex items-center gap-1 text-teal-900 font-medium hover:text-[#5EC198] transition ${
+                  activeMenu === "Page" ? "text-[#5EC198]" : ""
                 }`}
               >
                 Page
@@ -116,8 +117,8 @@ export default function EcofineNavbar() {
             {/* Blog */}
             <button
               onClick={() => setActiveMenu("Blog")}
-              className={`flex items-center gap-1 text-white font-medium hover:text-green-400 transition ${
-                activeMenu === "Blog" ? "text-green-400" : ""
+              className={`flex items-center gap-1 text-teal-900 font-medium hover:text-[#5EC198] transition ${
+                activeMenu === "Blog" ? "text-[#5EC198]" : ""
               }`}
             >
               Blog
@@ -127,17 +128,16 @@ export default function EcofineNavbar() {
             {/* Contact */}
             <button
               onClick={() => setActiveMenu("Contact")}
-              className={`text-white font-medium hover:text-green-400 transition ${
-                activeMenu === "Contact" ? "text-green-400" : ""
+              className={`text-teal-900 font-medium hover:text-[#5EC198] transition ${
+                activeMenu === "Contact" ? "text-[#5EC198]" : ""
               }`}
             >
               Contact
             </button>
 
             {/* Get A Quote Button */}
-            <button className="bg-green-500 hover:bg-green-600 text-white font-medium px-6 py-3 rounded-lg transition flex items-center gap-2">
-              Get A Quote
-              <span className="text-xl">»</span>
+            <button className="bg-[#5EC198] hover:bg-teal-900 text-white font-medium px-6 py-3 rounded-lg transition flex items-center gap-2">
+              <Search className="w-5 h-5" />
             </button>
           </div>
         </div>

@@ -321,67 +321,89 @@ export default function WhyREC() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8 mb-12">
-          {features.map((feature, index) => {
-            const Icon = feature.icon;
-            return (
-              <div
-                key={index}
-                className="feature-card"
-                style={{ animationDelay: `${index * 0.1}s` }}
-              >
-                <button
-                  className={`w-full flex items-center gap-4 p-4 rounded-lg bg-white shadow group focus:outline-none border-2 transition-all accordion-border ${
-                    openIndex === index
-                      ? "open border-teal-500"
-                      : "border-gray-200 hover:border-teal-300"
-                  }`}
-                  onClick={() => handleAccordionClick(index)}
-                  aria-expanded={openIndex === index}
-                  type="button"
-                  disabled={isAnimating}
-                >
-                  <div className="icon-wrapper w-12 h-12 bg-gradient-to-br from-teal-500 to-emerald-500 rounded-xl flex items-center justify-center shadow-lg">
-                    <Icon className="w-5 h-5 text-white relative z-10" />
-                  </div>
-                  <span className="font-bold text-gray-800 text-base flex-1 text-left group-hover:text-teal-600 transition-colors duration-300">
-                    {feature.title}
-                  </span>
-                  <ArrowRight
-                    className={`w-5 h-5 ml-2 transition-all duration-500 ease-out ${
-                      openIndex === index
-                        ? "rotate-90 text-teal-600 scale-110"
-                        : "text-gray-400 group-hover:text-teal-500 group-hover:translate-x-0.5"
-                    }`}
-                  />
-                </button>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-12 items-start">
+          {/* Left Side - Image */}
+          <div className="relative h-full min-h-[600px] rounded-2xl overflow-hidden shadow-2xl">
+            <img
+              src="https://images.unsplash.com/photo-1497436072909-60f360e1d4b1?w=800&h=1000&fit=crop"
+              alt="Environmental Consulting"
+              className="w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-teal-900/60 via-transparent to-transparent"></div>
+            <div className="absolute bottom-8 left-8 right-8">
+              <h3 className="text-white text-2xl font-bold mb-2">
+                Leading Environmental Solutions
+              </h3>
+              <p className="text-white/90 text-sm">
+                Committed to sustainable practices and innovative environmental
+                consulting
+              </p>
+            </div>
+          </div>
+
+          {/* Right Side - Accordions */}
+          <div className="space-y-4">
+            {features.map((feature, index) => {
+              const Icon = feature.icon;
+              return (
                 <div
-                  ref={(el) => {
-                    contentRefs.current[index] = el;
-                  }}
-                  className={`accordion-content bg-white rounded-b-lg border-x-2 border-b-2 ${
-                    openIndex === index
-                      ? "open border-teal-500"
-                      : "closed border-transparent"
-                  }`}
-                  style={{
-                    maxHeight:
-                      openIndex === index
-                        ? `${contentRefs.current[index]?.scrollHeight ?? 0}px`
-                        : "0px",
-                  }}
+                  key={index}
+                  className="feature-card"
+                  style={{ animationDelay: `${index * 0.1}s` }}
                 >
-                  <div
-                    className={`accordion-inner px-4 pb-4 pt-2 text-gray-600 leading-relaxed ${
-                      openIndex === index ? "content-reveal" : ""
+                  <button
+                    className={`w-full flex items-center gap-4 p-4 rounded-lg bg-white shadow group focus:outline-none border-2 transition-all accordion-border ${
+                      openIndex === index
+                        ? "open border-teal-500"
+                        : "border-gray-200 hover:border-teal-300"
                     }`}
+                    onClick={() => handleAccordionClick(index)}
+                    aria-expanded={openIndex === index}
+                    type="button"
+                    disabled={isAnimating}
                   >
-                    {feature.description}
+                    <div className="icon-wrapper w-12 h-12 bg-gradient-to-br from-teal-500 to-emerald-500 rounded-xl flex items-center justify-center shadow-lg">
+                      <Icon className="w-5 h-5 text-white relative z-10" />
+                    </div>
+                    <span className="font-bold text-gray-800 text-base flex-1 text-left group-hover:text-teal-600 transition-colors duration-300">
+                      {feature.title}
+                    </span>
+                    <ArrowRight
+                      className={`w-5 h-5 ml-2 transition-all duration-500 ease-out ${
+                        openIndex === index
+                          ? "rotate-90 text-teal-600 scale-110"
+                          : "text-gray-400 group-hover:text-teal-500 group-hover:translate-x-0.5"
+                      }`}
+                    />
+                  </button>
+                  <div
+                    ref={(el) => {
+                      contentRefs.current[index] = el;
+                    }}
+                    className={`accordion-content bg-white rounded-b-lg border-x-2 border-b-2 ${
+                      openIndex === index
+                        ? "open border-teal-500"
+                        : "closed border-transparent"
+                    }`}
+                    style={{
+                      maxHeight:
+                        openIndex === index
+                          ? `${contentRefs.current[index]?.scrollHeight ?? 0}px`
+                          : "0px",
+                    }}
+                  >
+                    <div
+                      className={`accordion-inner px-4 pb-4 pt-2 text-gray-600 leading-relaxed ${
+                        openIndex === index ? "content-reveal" : ""
+                      }`}
+                    >
+                      {feature.description}
+                    </div>
                   </div>
                 </div>
-              </div>
-            );
-          })}
+              );
+            })}
+          </div>
         </div>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center cta-animate">

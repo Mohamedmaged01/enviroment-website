@@ -76,7 +76,7 @@ export default function EcofineFooter() {
               <img
                 src="/logo-en.png"
                 alt="Ecofine Logo"
-                className="h-15 w-auto rounded-full bg-white p-1 shadow"
+                className="h-15 w-auto "
               />
             </div>
             <p className="text-gray-700 mb-6">
@@ -84,16 +84,16 @@ export default function EcofineFooter() {
               maintaining a healthy and sustainable ecology.
             </p>
             <div className="flex gap-4">
-              <button className="bg-white hover:bg-gray-100 p-2 rounded transition border border-gray-200">
+              <button className="  p-2    ">
                 <Facebook className="w-5 h-5 text-primary" />
               </button>
-              <button className="bg-white hover:bg-gray-100 p-2 rounded transition border border-gray-200">
+              <button className=" p-2   ">
                 <Twitter className="w-5 h-5 text-primary" />
               </button>
-              <button className="bg-white hover:bg-gray-100 p-2 rounded transition border border-gray-200">
+              <button className=" p-2    ">
                 <Instagram className="w-5 h-5 text-primary" />
               </button>
-              <button className="bg-white hover:bg-gray-100 p-2 rounded transition border border-gray-200">
+              <button className=" p-2 ">
                 <Linkedin className="w-5 h-5 text-primary" />
               </button>
             </div>

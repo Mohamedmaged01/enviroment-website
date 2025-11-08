@@ -34,7 +34,7 @@ export default function AnimatedStats() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gray-100 flex items-center justify-center p-4">
+    <div className=" bg-white flex items-center justify-center p-4">
       <div
         ref={sectionRef}
         className="w-full max-w-7xl bg-primary bg-linear-to-br from-primary to-secondary rounded-3xl shadow-2xl p-12 md:p-16 relative overflow-hidden"
@@ -95,7 +95,13 @@ type StatCounterProps = {
   isVisible: boolean;
 };
 
-function StatCounter({ value, label, suffix, delay, isVisible }: StatCounterProps) {
+function StatCounter({
+  value,
+  label,
+  suffix,
+  delay,
+  isVisible,
+}: StatCounterProps) {
   const [count, setCount] = useState(0);
 
   useEffect(() => {
