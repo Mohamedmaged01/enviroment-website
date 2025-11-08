@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import {
   Facebook,
-  Twitter,
   Linkedin,
   Instagram,
   ChevronDown,
   Search,
+  X as XIcon,
 } from "lucide-react";
 
 export default function EcofineNavbar() {
@@ -37,7 +37,7 @@ export default function EcofineNavbar() {
                 href="#"
                 className="text-gray-300 hover:text-[#5EC198] transition"
               >
-                <Twitter className="w-4 h-4" />
+                <XIcon className="w-4 h-4" />
               </a>
               <a
                 href="#"

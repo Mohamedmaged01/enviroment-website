@@ -5,11 +5,11 @@ import {
   Phone,
   Mail,
   Facebook,
-  Twitter,
   Instagram,
   Linkedin,
   Send,
   ArrowUp,
+  X as XIcon,
 } from "lucide-react";
 
 export default function EcofineFooter() {
@@ -88,7 +88,7 @@ export default function EcofineFooter() {
                 <Facebook className="w-5 h-5 text-primary" />
               </button>
               <button className=" p-2   ">
-                <Twitter className="w-5 h-5 text-primary" />
+                <XIcon className="w-5 h-5 text-primary" />
               </button>
               <button className=" p-2    ">
                 <Instagram className="w-5 h-5 text-primary" />
@@ -209,16 +209,12 @@ export default function EcofineFooter() {
       <div className="bg-[#e5e7eb] border-t border-[#d1d5db] relative">
         <div className="container mx-auto px-6 py-6 flex flex-col md:flex-row justify-between items-center gap-4">
           <div className="flex gap-6 text-sm text-gray-700">
-            <a href="#" className="hover:text-primary transition">
-              Privacy Policy
+            <a href="https://recec.sa/" className="hover:text-primary transition" target="_blank" rel="noopener noreferrer">
+              © Copyright recec.sa
             </a>
             <span>|</span>
-            <a href="#" className="hover:text-primary transition">
-              Terms & Condition
-            </a>
-            <span>|</span>
-            <a href="#" className="hover:text-primary transition">
-              Join Us
+            <a href="https://www.scadaatech.com/" className="hover:text-primary transition" target="_blank" rel="noopener noreferrer">
+              www.scadaatech.com
             </a>
           </div>
         </div>

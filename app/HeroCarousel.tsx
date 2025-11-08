@@ -70,10 +70,10 @@ export default function HeroCarousel({ slides }: HeroCarouselProps) {
               }`}
             >
               <div className="w-16 h-1 bg-linear-to-r from-green-600 to-teal-500 mb-4 rounded-full"></div>
-              <h2 className="text-4xl font-bold text-gray-800 mb-4 leading-tight">
+              <h2 className="text-4xl font-bold text-white mb-4 leading-tight">
                 <span className="text-gradient">{slide.title}</span>
               </h2>
-              <p className="text-gray-700 text-lg leading-relaxed mb-6">
+              <p className="text-white text-lg leading-relaxed mb-6">
                 {slide.description}
               </p>
               <button className="bg-gradient-to-r from-green-600 to-teal-600 hover:from-green-700 hover:to-teal-700 text-white px-8 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 hover:shadow-xl relative overflow-hidden group">
