@@ -2,7 +2,17 @@
 import React, { useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
-export default function HeroCarousel({ slides }) {
+interface Slide {
+  image: string;
+  title: string;
+  description: string;
+}
+
+interface HeroCarouselProps {
+  slides: Slide[];
+}
+
+export default function HeroCarousel({ slides }: HeroCarouselProps) {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
 
