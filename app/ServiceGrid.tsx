@@ -8,29 +8,26 @@ export default function ServicesSection() {
       title: "Carbon Offsetting",
       description:
         "This allows individuals and organizations to support their efforts to combat carbon climate change.",
-      image:
-        "https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=800&h=600&fit=crop",
+      image: "/REC/environment_GettyImages-501231894.jpg",
     },
     {
       icon: Factory,
       title: "Energy Consulting",
       description:
         "Energy consulting involves providing expert advice and guidance on energy-related matters.",
-      image:
-        "https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?w=800&h=600&fit=crop",
+      image: "/REC/AdobeStock_434315057.jpeg",
     },
     {
       icon: Recycle,
       title: "Climate Adaptation",
       description:
         "Refers to the adaptation process of human and natural systems in response to the impacts.",
-      image:
-        "https://images.unsplash.com/photo-1618477461853-cf6ed80faba5?w=800&h=600&fit=crop",
+      image: "/REC/Better-Lives-Image-1.jpg",
     },
   ];
 
   return (
-    <div className="py-20 bg-gradient-to-b from-gray-50 to-white relative overflow-hidden">
+    <div className="py-20 bg-linear-to-b from-gray-50 to-white relative overflow-hidden">
       <style>{`
         @keyframes fadeInUp {
           from {
@@ -126,7 +123,7 @@ export default function ServicesSection() {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Header */}
-      
+
         {/* Services Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {services.map((service, index) => {
@@ -139,7 +136,7 @@ export default function ServicesSection() {
               >
                 {/* Icon Section */}
                 <div className="flex items-center justify-center pt-12 pb-8">
-                  <div className="icon-bg w-20 h-20 bg-gradient-to-br from-green-100 to-teal-100 rounded-full flex items-center justify-center">
+                  <div className="icon-bg w-20 h-20 bg-linear-to-br from-green-100 to-teal-100 rounded-full flex items-center justify-center">
                     <Icon
                       className="w-10 h-10 text-green-600"
                       strokeWidth={1.5}

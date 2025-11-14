@@ -7,9 +7,16 @@ import {
   Search,
   X as XIcon,
 } from "lucide-react";
+import i18next from "./i18n";
+import { useTranslation } from "react-i18next";
 
 export default function EcofineNavbar() {
   const [activeMenu, setActiveMenu] = useState("Home");
+  const { t, i18n } = useTranslation();
+
+  const handleLangChange = (lng: string) => {
+    i18n.changeLanguage(lng);
+  };
 
   return (
     <nav className="bg-white border-b border-gray-200">
@@ -19,14 +26,14 @@ export default function EcofineNavbar() {
           <div className="flex justify-between items-center h-12 text-sm">
             {/* Left - Address and Hotline */}
             <div className="flex items-center gap-8 text-gray-300">
-              <span>Visit our location: Saudi Arabia - Jeddah</span>
-              <span>Landline: +966126144414</span>
-              <span>Mobile: +966556395674</span>
+              <span>{t("navbar.location")}</span>
+              <span>{t("navbar.landline")}</span>
+              <span>{t("navbar.mobile")}</span>
             </div>
 
             {/* Right - Social Media */}
             <div className="flex items-center gap-4">
-              <span className="text-gray-300">Follow On :</span>
+              <span className="text-gray-300">{t("navbar.follow")}</span>
               <a
                 href="#"
                 className="text-gray-300 hover:text-[#5EC198] transition"
@@ -51,6 +58,8 @@ export default function EcofineNavbar() {
               >
                 <Instagram className="w-4 h-4" />
               </a>
+              <button onClick={() => handleLangChange("en")}>EN</button>
+              <button onClick={() => handleLangChange("ar")}>AR</button>
             </div>
           </div>
         </div>
@@ -61,8 +70,8 @@ export default function EcofineNavbar() {
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
           <img
-            src="/logo-en.png"
-            alt="Ecofine Logo"
+            src="/REC/rec logo.png"
+            alt="Logo"
             className="h-12 w-auto object-contain"
           />
 
@@ -76,7 +85,7 @@ export default function EcofineNavbar() {
                   activeMenu === "Home" ? "text-[#5EC198]" : ""
                 }`}
               >
-                Home
+                {t("navbar.home")}
                 <ChevronDown className="w-4 h-4" />
               </button>
             </div>
@@ -88,7 +97,7 @@ export default function EcofineNavbar() {
                 activeMenu === "About Us" ? "text-[#5EC198]" : ""
               }`}
             >
-              About Us
+              {t("navbar.about")}
             </button>
 
             {/* Service */}
@@ -98,7 +107,7 @@ export default function EcofineNavbar() {
                 activeMenu === "Service" ? "text-[#5EC198]" : ""
               }`}
             >
-              Service
+              {t("navbar.service")}
             </button>
 
             {/* Page with Badge */}
@@ -109,7 +118,7 @@ export default function EcofineNavbar() {
                   activeMenu === "Page" ? "text-[#5EC198]" : ""
                 }`}
               >
-                Page
+                {t("navbar.page")}
                 <ChevronDown className="w-4 h-4" />
               </button>
             </div>
@@ -121,7 +130,7 @@ export default function EcofineNavbar() {
                 activeMenu === "Blog" ? "text-[#5EC198]" : ""
               }`}
             >
-              Blog
+              {t("navbar.blog")}
               <ChevronDown className="w-4 h-4" />
             </button>
 
@@ -132,7 +141,7 @@ export default function EcofineNavbar() {
                 activeMenu === "Contact" ? "text-[#5EC198]" : ""
               }`}
             >
-              Contact
+              {t("navbar.contact")}
             </button>
 
             {/* Get A Quote Button */}

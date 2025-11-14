@@ -325,7 +325,7 @@ export default function WhyREC() {
           {/* Left Side - Image */}
           <div className="relative h-full min-h-[600px] rounded-2xl overflow-hidden shadow-2xl">
             <img
-              src="https://images.unsplash.com/photo-1497436072909-60f360e1d4b1?w=800&h=1000&fit=crop"
+              src="/REC/photo_2023-08-25_20-25-23.jpg"
               alt="Environmental Consulting"
               className="w-full h-full object-cover"
             />

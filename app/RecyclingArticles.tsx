@@ -14,8 +14,7 @@ export default function RecyclingArticles() {
 
   const articles = [
     {
-      image:
-        "https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?auto=format&fit=crop&w=1920&q=80",
+      image: "/REC/AdobeStock_101394950.jpeg",
       date: "11/2025",
       category: "POST | FORMATS | RECYCLING",
       title: "Recycling basics",
@@ -24,8 +23,7 @@ export default function RecyclingArticles() {
       readTime: "5 min read",
     },
     {
-      image:
-        "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=1920&q=80",
+      image: "/REC/AdobeStock_14240675.jpeg",
       date: "11/2025",
       category: "RECYCLING",
       title: "Waste Collection Today",
@@ -34,8 +32,7 @@ export default function RecyclingArticles() {
       readTime: "3 min read",
     },
     {
-      image:
-        "https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=1920&q=80",
+      image: "/REC/AdobeStock_199331282.jpeg",
       date: "11/2025",
       category: "RECYCLING",
       title: "How to Recycle Paper",

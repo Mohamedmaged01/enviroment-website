@@ -11,9 +11,16 @@ import {
   ArrowUp,
   X as XIcon,
 } from "lucide-react";
+import i18next from "./i18n";
+import { useTranslation } from "react-i18next";
 
 export default function EcofineFooter() {
   const [email, setEmail] = useState("");
+  const { t, i18n } = useTranslation();
+
+  const handleLangChange = (lng: string) => {
+    i18n.changeLanguage(lng);
+  };
 
   const handleSubmit = (e: { preventDefault: () => void }) => {
     e.preventDefault();
@@ -29,6 +36,10 @@ export default function EcofineFooter() {
     <footer className="bg-[#f3f4f6] text-black border-t border-[#e5e7eb]">
       {/* Contact Cards Section */}
       <div className="container mx-auto px-6 py-12">
+        <div className="flex items-center gap-4 mb-8">
+          <button onClick={() => handleLangChange("en")}>EN</button>
+          <button onClick={() => handleLangChange("ar")}>AR</button>
+        </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
           {/* Location Card */}
           <div className="bg-[#5EC198] bg-opacity-90 rounded-2xl p-8 flex items-start gap-4">
@@ -36,8 +47,8 @@ export default function EcofineFooter() {
               <MapPin className="w-6 h-6 text-[#5EC198]" />
             </div>
             <div>
-              <h3 className="text-xl font-bold mb-2">Visit our location</h3>
-              <p className="text-black/90">Saudi Arabia - Jeddah</p>
+              <h3 className="text-xl font-bold mb-2">{t("footer.location")}</h3>
+              <p className="text-black/90">{t("footer.address")}</p>
             </div>
           </div>
 
@@ -47,12 +58,12 @@ export default function EcofineFooter() {
               <Phone className="w-6 h-6 text-[#5EC198]" />
             </div>
             <div>
-              <h3 className="text-xl font-bold mb-2">Landline phone</h3>
-              <p className="text-black/90">+966126144414</p>
+              <h3 className="text-xl font-bold mb-2">{t("footer.landline")}</h3>
+              <p className="text-black/90">{t("footer.landline_number")}</p>
               <h3 className="text-xl font-bold mb-2 mt-4">
-                Have any questions?
+                {t("footer.questions")}
               </h3>
-              <p className="text-black/90">+966556395674</p>
+              <p className="text-black/90">{t("footer.mobile_number")}</p>
             </div>
           </div>
 
@@ -62,8 +73,10 @@ export default function EcofineFooter() {
               <Mail className="w-6 h-6 text-[#5EC198]" />
             </div>
             <div>
-              <h3 className="text-xl font-bold mb-2">Write a email</h3>
-              <p className="text-black/90">info@recec.sa</p>
+              <h3 className="text-xl font-bold mb-2">
+                {t("footer.email_title")}
+              </h3>
+              <p className="text-black/90">{t("footer.email")}</p>
             </div>
           </div>
         </div>
@@ -74,15 +87,12 @@ export default function EcofineFooter() {
           <div>
             <div className="flex items-center gap-2 mb-4">
               <img
-                src="/logo-en.png"
-                alt="Ecofine Logo"
+                src="/REC/rec logo.png"
+                alt="Logo"
                 className="h-15 w-auto "
               />
             </div>
-            <p className="text-gray-700 mb-6">
-              Protecting biodiversity and natural habitats is crucial for
-              maintaining a healthy and sustainable ecology.
-            </p>
+            <p className="text-gray-700 mb-6">{t("footer.brand")}</p>
             <div className="flex gap-4">
               <button className="  p-2    ">
                 <Facebook className="w-5 h-5 text-primary" />
@@ -101,14 +111,16 @@ export default function EcofineFooter() {
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-xl font-bold mb-6">Quick Link</h3>
+            <h3 className="text-xl font-bold mb-6">
+              {t("footer.quick_links")}
+            </h3>
             <ul className="space-y-3">
               <li>
                 <a
                   href="#"
                   className="text-gray-700 hover:text-primary transition"
                 >
-                  Water Conservation
+                  {t("footer.water")}
                 </a>
               </li>
               <li>
@@ -116,7 +128,7 @@ export default function EcofineFooter() {
                   href="#"
                   className="text-gray-700 hover:text-primary transition"
                 >
-                  Global Warming
+                  {t("footer.warming")}
                 </a>
               </li>
               <li>
@@ -124,7 +136,7 @@ export default function EcofineFooter() {
                   href="#"
                   className="text-gray-700 hover:text-primary transition"
                 >
-                  Climate Adaptation
+                  {t("footer.climate")}
                 </a>
               </li>
               <li>
@@ -132,7 +144,7 @@ export default function EcofineFooter() {
                   href="#"
                   className="text-gray-700 hover:text-primary transition"
                 >
-                  Urban planning
+                  {t("footer.urban")}
                 </a>
               </li>
               <li>
@@ -140,7 +152,7 @@ export default function EcofineFooter() {
                   href="#"
                   className="text-gray-700 hover:text-primary transition"
                 >
-                  Energy Consulting
+                  {t("footer.energy")}
                 </a>
               </li>
             </ul>
@@ -148,7 +160,9 @@ export default function EcofineFooter() {
 
           {/* Recent News */}
           <div>
-            <h3 className="text-xl font-bold mb-6">Recent News</h3>
+            <h3 className="text-xl font-bold mb-6">
+              {t("footer.recent_news")}
+            </h3>
             <div className="space-y-4">
               <div className="flex gap-3">
                 <img
@@ -158,7 +172,7 @@ export default function EcofineFooter() {
                 />
                 <div>
                   <h4 className="text-sm font-semibold mb-1 hover:text-primary transition cursor-pointer text-black">
-                    Go green and reduce your carbon...
+                    {t("footer.news1")}
                   </h4>
                   <p className="text-xs text-gray-700">April 3, 2023</p>
                 </div>
@@ -171,7 +185,7 @@ export default function EcofineFooter() {
                 />
                 <div>
                   <h4 className="text-sm font-semibold mb-1 hover:text-primary transition cursor-pointer text-black">
-                    Make a statement support of the...
+                    {t("footer.news2")}
                   </h4>
                   <p className="text-xs text-gray-700">April 3, 2023</p>
                 </div>
@@ -181,10 +195,8 @@ export default function EcofineFooter() {
 
           {/* Newsletter */}
           <div>
-            <h3 className="text-xl font-bold mb-6">Newsletter</h3>
-            <p className="text-gray-700 mb-4">
-              Your opinion is important to us. So contact us for any service.
-            </p>
+            <h3 className="text-xl font-bold mb-6">{t("footer.newsletter")}</h3>
+            <p className="text-gray-700 mb-4">{t("footer.newsletter_desc")}</p>
             <form onSubmit={handleSubmit} className="flex">
               <input
                 type="email"
@@ -209,12 +221,22 @@ export default function EcofineFooter() {
       <div className="bg-[#e5e7eb] border-t border-[#d1d5db] relative">
         <div className="container mx-auto px-6 py-6 flex flex-col md:flex-row justify-between items-center gap-4">
           <div className="flex gap-6 text-sm text-gray-700">
-            <a href="https://recec.sa/" className="hover:text-primary transition" target="_blank" rel="noopener noreferrer">
-              © Copyright recec.sa
+            <a
+              href="https://recec.sa/"
+              className="hover:text-primary transition"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {t("footer.copyright")}
             </a>
             <span>|</span>
-            <a href="https://www.scadaatech.com/" className="hover:text-primary transition" target="_blank" rel="noopener noreferrer">
-            developed by :   www.scadaatech.com
+            <a
+              href="https://www.scadaatech.com/"
+              className="hover:text-primary transition"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {t("footer.scada")}
             </a>
           </div>
         </div>

@@ -1,0 +1,38 @@
+{
+  "navbar": {
+    "location": "Visit our location: Saudi Arabia - Jeddah",
+    "landline": "Landline: +966126144414",
+    "mobile": "Mobile: +966556395674",
+    "follow": "Follow On :",
+    "home": "Home",
+    "about": "About Us",
+    "service": "Service",
+    "page": "Page",
+    "blog": "Blog",
+    "contact": "Contact"
+  },
+  "footer": {
+    "location": "Visit our location",
+    "address": "Saudi Arabia - Jeddah",
+    "landline": "Landline phone",
+    "landline_number": "+966126144414",
+    "questions": "Have any questions?",
+    "mobile_number": "+966556395674",
+    "email_title": "Write a email",
+    "email": "info@recec.sa",
+    "brand": "Protecting biodiversity and natural habitats is crucial for maintaining a healthy and sustainable ecology.",
+    "quick_links": "Quick Link",
+    "water": "Water Conservation",
+    "warming": "Global Warming",
+    "climate": "Climate Adaptation",
+    "urban": "Urban planning",
+    "energy": "Energy Consulting",
+    "recent_news": "Recent News",
+    "news1": "Go green and reduce your carbon...",
+    "news2": "Make a statement support of the...",
+    "newsletter": "Newsletter",
+    "newsletter_desc": "Your opinion is important to us. So contact us for any service.",
+    "copyright": "© Copyright recec.sa",
+    "scada": "www.scadaatech.com"
+  }
+}
