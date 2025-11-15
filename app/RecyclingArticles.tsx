@@ -1,4 +1,5 @@
 "use client";
+import { useTranslation } from "react-i18next";
 import React from "react";
 import {
   ChevronLeft,
@@ -9,6 +10,7 @@ import {
 } from "lucide-react";
 
 export default function RecyclingArticles() {
+  const { t } = useTranslation();
   const [hoveredCard, setHoveredCard] = React.useState<number | null>(null);
   const [currentIndex, setCurrentIndex] = React.useState(0);
 
@@ -16,29 +18,26 @@ export default function RecyclingArticles() {
     {
       image: "/REC/AdobeStock_101394950.jpeg",
       date: "11/2025",
-      category: "POST | FORMATS | RECYCLING",
-      title: "Recycling basics",
-      description:
-        "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Morbi gravida fringilla neque sit amet sollicitudin. Duis aliquam dictum feugiat. Quisque...",
-      readTime: "5 min read",
+      category: t("articles.recycling_basics_category"),
+      title: t("articles.recycling_basics_title"),
+      description: t("articles.recycling_basics_desc"),
+      readTime: t("articles.recycling_basics_read_time"),
     },
     {
       image: "/REC/AdobeStock_14240675.jpeg",
       date: "11/2025",
-      category: "RECYCLING",
-      title: "Waste Collection Today",
-      description:
-        "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Morbi gravida fringilla neque sit amet sollicitudin. Duis aliquam dictum feugiat. Quisque...",
-      readTime: "3 min read",
+      category: t("articles.waste_collection_today_category"),
+      title: t("articles.waste_collection_today_title"),
+      description: t("articles.waste_collection_today_desc"),
+      readTime: t("articles.waste_collection_today_read_time"),
     },
     {
       image: "/REC/AdobeStock_199331282.jpeg",
       date: "11/2025",
-      category: "RECYCLING",
-      title: "How to Recycle Paper",
-      description:
-        "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Morbi gravida fringilla neque sit amet sollicitudin. Duis aliquam dictum feugiat. Quisque...",
-      readTime: "4 min read",
+      category: t("articles.how_to_recycle_paper_category"),
+      title: t("articles.how_to_recycle_paper_title"),
+      description: t("articles.how_to_recycle_paper_desc"),
+      readTime: t("articles.how_to_recycle_paper_read_time"),
     },
   ];
 
@@ -330,7 +329,7 @@ export default function RecyclingArticles() {
         {/* Header */}
         <div className="text-center mb-16 animate-slide-up">
           <h2 className="text-white text-5xl md:text-6xl font-bold mb-6 drop-shadow-2xl title-gradient glow-text">
-            Latest Articles
+            {t("header.latest_articles")}
           </h2>
           <div className="flex items-center justify-center gap-2 mb-6">
             <div className="h-1 w-20 bg-white/50 rounded-full animate-slide-in-left"></div>
@@ -338,9 +337,7 @@ export default function RecyclingArticles() {
             <div className="h-1 w-20 bg-white/50 rounded-full animate-slide-in-right"></div>
           </div>
           <p className="text-white/95 text-lg max-w-4xl mx-auto italic leading-relaxed drop-shadow-lg animate-slide-up anim-delay-200">
-            Lorem ipsum dolor sit amet, consectetuer. Proin gravida nibh vel
-            velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum
-            auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit.
+            {t("header.description")}
           </p>
         </div>
 
@@ -394,7 +391,7 @@ export default function RecyclingArticles() {
               </p>
 
               <button className="learn-more-btn bg-emerald-500 text-white px-6 py-3 rounded-full text-sm font-semibold uppercase hover:bg-emerald-600 transition-all duration-300 hover:shadow-xl hover:scale-105 active:scale-95 flex items-center gap-2 group relative z-10">
-                LEARN MORE
+                {t("button.learn_more")}
                 <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-2" />
               </button>
             </div>

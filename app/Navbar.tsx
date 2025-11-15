@@ -1,3 +1,6 @@
+"use client";
+import "./i18n";
+
 import React, { useState } from "react";
 import {
   Facebook,
@@ -7,7 +10,6 @@ import {
   Search,
   X as XIcon,
 } from "lucide-react";
-import i18next from "./i18n";
 import { useTranslation } from "react-i18next";
 
 export default function EcofineNavbar() {
@@ -58,8 +60,30 @@ export default function EcofineNavbar() {
               >
                 <Instagram className="w-4 h-4" />
               </a>
-              <button onClick={() => handleLangChange("en")}>EN</button>
-              <button onClick={() => handleLangChange("ar")}>AR</button>
+              <button
+                onClick={() => handleLangChange("en")}
+                className="flex items-center gap-2 px-3 py-1 rounded-lg border border-gray-300 bg-white hover:bg-gray-100 shadow-sm transition text-sm font-semibold text-black"
+                style={{ minWidth: 80 }}
+              >
+                <img
+                  src="/uk.png"
+                  alt="USA flag"
+                  className="w-5 h-5 rounded-sm border"
+                />
+                EN
+              </button>
+              <button
+                onClick={() => handleLangChange("ar")}
+                className="flex items-center gap-2 px-3 py-1 rounded-lg border border-gray-300 bg-white hover:bg-gray-100 shadow-sm transition text-sm font-semibold text-black"
+                style={{ minWidth: 80 }}
+              >
+                <img
+                  src="/sa.png"
+                  alt="Saudi Arabia flag"
+                  className="w-5 h-5 rounded-sm border"
+                />
+                AR
+              </button>
             </div>
           </div>
         </div>
@@ -70,7 +94,7 @@ export default function EcofineNavbar() {
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
           <img
-            src="/REC/rec logo.png"
+            src="/reclogo.png"
             alt="Logo"
             className="h-12 w-auto object-contain"
           />

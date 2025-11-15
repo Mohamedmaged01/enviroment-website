@@ -1,15 +1,17 @@
 "use client";
 import { useState, useEffect, useRef } from "react";
+import { useTranslation } from "react-i18next";
 
 export default function AnimatedStats() {
+  const { t } = useTranslation();
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef(null);
 
   const stats = [
-    { value: 200, label: "Team member", suffix: "+" },
-    { value: 10, label: "Complete project", suffix: "+" },
-    { value: 20, label: "Winning award", suffix: "+" },
-    { value: 20, label: "Winning award", suffix: "+" },
+    { value: 200, label: t("stats.team_member"), suffix: "+" },
+    { value: 10, label: t("stats.complete_project"), suffix: "+" },
+    { value: 20, label: t("stats.winning_award"), suffix: "+" },
+    { value: 20, label: t("stats.winning_award"), suffix: "+" },
   ];
 
   useEffect(() => {

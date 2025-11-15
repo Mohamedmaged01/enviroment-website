@@ -34,5 +34,123 @@
     "newsletter_desc": "Your opinion is important to us. So contact us for any service.",
     "copyright": "© Copyright recec.sa",
     "scada": "www.scadaatech.com"
+  },
+  "why": {
+    "environmental_impact_title": "Environmental Impact:",
+    "environmental_impact_desc": "REC play a crucial role in helping businesses minimize their environmental impact through expert advice and solutions.",
+    "sustainable_development_title": "Sustainable Development:",
+    "sustainable_development_desc": "We assist clients in adopting sustainable practices, incorporating eco-friendly technologies and energy-efficient processes.",
+    "problem_solving_title": "Problem Solving:",
+    "problem_solving_desc": "Our consultants assess environmental issues and develop innovative solutions to environmental challenges.",
+    "diverse_projects_title": "Diverse Projects:",
+    "diverse_projects_desc": "We cover environmental impact assessments, site remediation, water resource management, and renewable energy projects.",
+    "educational_role_title": "Educational Role:",
+    "educational_role_desc": "We educate clients about environmental issues and best practices, promoting environmental stewardship.",
+    "collaboration_title": "Collaboration:",
+    "collaboration_desc": "We collaborate with experts from diverse fields, fostering a collaborative work environment for continuous learning.",
+    "global_relevance_title": "Global Relevance:",
+    "global_relevance_desc": "We work on international projects, addressing environmental challenges and contributing to global sustainability efforts.",
+    "get_to_know_about_us": "Get to Know About Us",
+    "title": "Why",
+    "learn_more": "Learn More",
+    "contact_us": "Contact Us",
+    "subtitle": "Why Choose REC?",
+    "image_title": "Our Commitment to Sustainability",
+    "image_desc": "REC is dedicated to providing innovative solutions that protect the environment and promote sustainable development."
+  },
+  "stats": {
+    "team_member": "Team Members",
+    "complete_project": "Completed Projects",
+    "winning_award": "Awards Won"
+  },
+  "services": {
+    "title": "Services",
+    "subtitle": "Our Service Portfolio",
+    "description": "We offer a wide range of environmental and consulting services to support sustainability and protect the environment.",
+    "carbon_offsetting_title": "Carbon Offsetting",
+    "carbon_offsetting_desc": "This allows individuals and organizations to support their efforts to combat carbon climate change.",
+    "energy_consulting_title": "Energy Consulting",
+    "energy_consulting_desc": "Energy consulting involves providing expert advice and guidance on energy-related matters.",
+    "climate_adaptation_title": "Climate Adaptation",
+    "climate_adaptation_desc": "Refers to the adaptation process of human and natural systems in response to the impacts."
+  },
+  "articles": {
+    "recycling_basics_category": "POST | FORMATS | RECYCLING",
+    "recycling_basics_title": "Recycling basics",
+    "recycling_basics_desc": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Morbi gravida fringilla neque sit amet sollicitudin. Duis aliquam dictum feugiat. Quisque...",
+    "recycling_basics_read_time": "5 min read",
+    "waste_collection_today_category": "RECYCLING",
+    "waste_collection_today_title": "Waste Collection Today",
+    "waste_collection_today_desc": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Morbi gravida fringilla neque sit amet sollicitudin. Duis aliquam dictum feugiat. Quisque...",
+    "waste_collection_today_read_time": "3 min read",
+    "how_to_recycle_paper_category": "RECYCLING",
+    "how_to_recycle_paper_title": "How to Recycle Paper",
+    "how_to_recycle_paper_desc": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Morbi gravida fringilla neque sit amet sollicitudin. Duis aliquam dictum feugiat. Quisque...",
+    "how_to_recycle_paper_read_time": "4 min read"
+  },
+  "news1": "Go green and reduce your carbon...",
+  "news2": "Make a statement support of the...",
+  "news3": "Protecting biodiversity and natural habitats...",
+  "recycling": {
+    "paper_cardboard": "Paper & Cardboard",
+    "medical_waste": "Medical Waste",
+    "industrial_scrap_metal": "Industrial Scrap Metal",
+    "glass_bottles": "Glass Bottles",
+    "better_recycling_title": "Better Recycling",
+    "better_recycling_desc1": "Lorem ipsum dolor sit amet, consectetuer. Proin gravida nibh vel velit auctor aliquet aenean sollicitudin.",
+    "better_recycling_desc2": "Lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Lorem ipsum dolor sit amet, consectetuer. Lorem ipsum dolor sit amet, consectur adipiscing elit.",
+    "annual_report": "ANNUAL REPORT"
+  },
+  "continue": "Continue",
+  "header": {
+    "latest_articles": "Latest Articles",
+    "description": "Lorem ipsum dolor sit amet, consectetuer. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit."
+  },
+  "button": {
+    "learn_more": "LEARN MORE"
+  },
+  "hero": {
+    "recycle_title": "Recycle for a Better Tomorrow",
+    "recycle_desc": "Join us in making the world greener by recycling waste responsibly.",
+    "sustainable_title": "Sustainable Solutions",
+    "sustainable_desc": "We provide sustainable waste management solutions for businesses.",
+    "protect_title": "Protect the Environment",
+    "protect_desc": "Our mission is to minimize environmental impact through recycling."
+  },
+  "cards": {
+    "industrial_title": "Industrial Recycling",
+    "industrial_subtitle": "Efficient Solutions",
+    "industrial_desc": "We offer industrial recycling services for factories and plants.",
+    "sustainable_title": "Sustainable Practices",
+    "sustainable_subtitle": "Eco-Friendly Methods",
+    "sustainable_desc": "Our sustainable practices help reduce waste and conserve resources.",
+    "environmental_title": "Environmental Consulting",
+    "environmental_subtitle": "Expert Guidance",
+    "environmental_desc": "Get expert advice on environmental management and compliance."
+  },
+  "welcome": {
+    "brand": "REC Environmental Consultancy",
+    "subtitle": "Sustainable Solutions for a Greener Future",
+    "description": "We provide expert environmental consulting services to help organizations achieve sustainability and protect natural resources.",
+    "button": "Get Started",
+    "title": "Welcome to REC Environmental Consultancy"
+  },
+  "news": {
+    "title": "News",
+    "title1": "Green Initiatives in Saudi Arabia",
+    "author1": "By Dr. Osman",
+    "date1": "Nov 10, 2025",
+    "comments1": "3 comments",
+    "description1": "Saudi Arabia launches new green initiatives to reduce carbon emissions and promote sustainability across the region.",
+    "title2": "REC Partners with Local Communities",
+    "author2": "By REC Team",
+    "date2": "Nov 12, 2025",
+    "comments2": "5 comments",
+    "description2": "REC Environmental Consultancy collaborates with local communities to implement effective recycling programs.",
+    "title3": "Innovative Waste Management Solutions",
+    "author3": "By Eng. Sara",
+    "date3": "Nov 14, 2025",
+    "comments3": "2 comments",
+    "description3": "Discover how REC is introducing innovative waste management solutions for a cleaner and greener future."
   }
 }

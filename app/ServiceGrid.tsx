@@ -1,27 +1,26 @@
 import React from "react";
 import { Globe, Factory, Recycle } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 export default function ServicesSection() {
+  const { t } = useTranslation();
   const services = [
     {
       icon: Globe,
-      title: "Carbon Offsetting",
-      description:
-        "This allows individuals and organizations to support their efforts to combat carbon climate change.",
+      title: t("services.carbon_offsetting_title"),
+      description: t("services.carbon_offsetting_desc"),
       image: "/REC/environment_GettyImages-501231894.jpg",
     },
     {
       icon: Factory,
-      title: "Energy Consulting",
-      description:
-        "Energy consulting involves providing expert advice and guidance on energy-related matters.",
+      title: t("services.energy_consulting_title"),
+      description: t("services.energy_consulting_desc"),
       image: "/REC/AdobeStock_434315057.jpeg",
     },
     {
       icon: Recycle,
-      title: "Climate Adaptation",
-      description:
-        "Refers to the adaptation process of human and natural systems in response to the impacts.",
+      title: t("services.climate_adaptation_title"),
+      description: t("services.climate_adaptation_desc"),
       image: "/REC/Better-Lives-Image-1.jpg",
     },
   ];

@@ -1,3 +1,5 @@
+"use client";
+import { useTranslation } from "react-i18next";
 import React from "react";
 import { Cloud } from "lucide-react";
 
@@ -23,11 +25,29 @@ const ProgressBar = ({ label, percentage, color }: ProgressBarProps) => (
 );
 
 const BetterRecycling = () => {
+  const { t } = useTranslation();
+
   const recyclingData = [
-    { label: "Paper & Cardboard", percentage: 76, color: "bg-teal-600" },
-    { label: "Medical Waste", percentage: 70, color: "bg-orange-500" },
-    { label: "Industrial Scrap Metal", percentage: 35, color: "bg-lime-500" },
-    { label: "Glass Bottles", percentage: 55, color: "bg-cyan-600" },
+    {
+      label: t("recycling.paper_cardboard"),
+      percentage: 76,
+      color: "bg-teal-600",
+    },
+    {
+      label: t("recycling.medical_waste"),
+      percentage: 70,
+      color: "bg-orange-500",
+    },
+    {
+      label: t("recycling.industrial_scrap_metal"),
+      percentage: 35,
+      color: "bg-lime-500",
+    },
+    {
+      label: t("recycling.glass_bottles"),
+      percentage: 55,
+      color: "bg-cyan-600",
+    },
   ];
 
   return (
@@ -37,22 +57,16 @@ const BetterRecycling = () => {
           {/* Left Column - Text Content */}
           <div>
             <h2 className="text-4xl font-bold text-gray-800 mb-6">
-              Better Recycling
+              {t("recycling.better_recycling_title")}
             </h2>
             <p className="text-gray-600 text-lg leading-relaxed mb-6">
-              Lorem ipsum dolor sit amet, consectetuer. Proin gravida nibh vel
-              velit auctor aliquet aenean sollicitudin.
+              {t("recycling.better_recycling_desc1")}
             </p>
             <p className="text-gray-600 leading-relaxed mb-8">
-              Lorem quis bibendum auctor, nisi elit consequat ipsum, nec
-              sagittis sem nibh id elit. Proin gravida nibh vel velit auctor
-              aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi
-              elit consequat ipsum, nec sagittis sem nibh id elit. Lorem ipsum
-              dolor sit amet, consectetuer. Lorem ipsum dolor sit amet,
-              consectur adipiscing elit.
+              {t("recycling.better_recycling_desc2")}
             </p>
             <button className="bg-teal-600 hover:bg-teal-700 text-white font-semibold px-8 py-4 rounded flex items-center gap-3 transition-colors">
-              ANNUAL REPORT
+              {t("recycling.annual_report")}
               <Cloud className="w-5 h-5" />
             </button>
           </div>

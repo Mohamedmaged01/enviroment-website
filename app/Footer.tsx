@@ -11,7 +11,6 @@ import {
   ArrowUp,
   X as XIcon,
 } from "lucide-react";
-import i18next from "./i18n";
 import { useTranslation } from "react-i18next";
 
 export default function EcofineFooter() {
@@ -36,10 +35,6 @@ export default function EcofineFooter() {
     <footer className="bg-[#f3f4f6] text-black border-t border-[#e5e7eb]">
       {/* Contact Cards Section */}
       <div className="container mx-auto px-6 py-12">
-        <div className="flex items-center gap-4 mb-8">
-          <button onClick={() => handleLangChange("en")}>EN</button>
-          <button onClick={() => handleLangChange("ar")}>AR</button>
-        </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
           {/* Location Card */}
           <div className="bg-[#5EC198] bg-opacity-90 rounded-2xl p-8 flex items-start gap-4">
@@ -86,11 +81,7 @@ export default function EcofineFooter() {
           {/* Brand Section */}
           <div>
             <div className="flex items-center gap-2 mb-4">
-              <img
-                src="/REC/rec logo.png"
-                alt="Logo"
-                className="h-15 w-auto "
-              />
+              <img src="/reclogo.png" alt="Logo" className="h-15 w-auto " />
             </div>
             <p className="text-gray-700 mb-6">{t("footer.brand")}</p>
             <div className="flex gap-4">

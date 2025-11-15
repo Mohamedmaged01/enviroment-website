@@ -1,6 +1,7 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 interface Slide {
   image: string;
@@ -13,6 +14,7 @@ interface HeroCarouselProps {
 }
 
 export default function HeroCarousel({ slides }: HeroCarouselProps) {
+  const { t } = useTranslation();
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
 
@@ -52,7 +54,7 @@ export default function HeroCarousel({ slides }: HeroCarouselProps) {
           >
             <img
               src={slide.image}
-              alt={slide.title}
+              alt={t(slide.title)}
               className="w-full h-full object-cover transform transition-transform duration-700"
               style={{
                 transform: index === currentSlide ? "scale(1)" : "scale(1.1)",
@@ -71,10 +73,10 @@ export default function HeroCarousel({ slides }: HeroCarouselProps) {
             >
               <div className="w-16 h-1 bg-linear-to-r from-green-600 to-teal-500 mb-4 rounded-full"></div>
               <h2 className="text-4xl font-bold text-white mb-4 leading-tight">
-                <span className="text-gradient">{slide.title}</span>
+                <span className="text-gradient">{t(slide.title)}</span>
               </h2>
               <p className="text-white text-lg leading-relaxed mb-6">
-                {slide.description}
+                {t(slide.description)}
               </p>
               <button className="bg-gradient-to-r from-green-600 to-teal-600 hover:from-green-700 hover:to-teal-700 text-white px-8 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 hover:shadow-xl relative overflow-hidden group">
                 <span className="relative z-10">LEARN MORE</span>

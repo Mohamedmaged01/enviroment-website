@@ -1,4 +1,5 @@
 "use client";
+import { useTranslation } from "react-i18next";
 import { useState, useRef } from "react";
 import {
   Leaf,
@@ -13,6 +14,7 @@ import {
 } from "lucide-react";
 
 export default function WhyREC() {
+  const { t } = useTranslation();
   const [openIndex, setOpenIndex] = useState<number | null>(null);
   const [isAnimating, setIsAnimating] = useState(false);
   const contentRefs = useRef<Array<HTMLDivElement | null>>([]);
@@ -31,45 +33,38 @@ export default function WhyREC() {
   const features = [
     {
       icon: Leaf,
-      title: "Environmental Impact:",
-      description:
-        "REC play a crucial role in helping businesses minimize their environmental impact through expert advice and solutions.",
+      title: t("why.environmental_impact_title"),
+      description: t("why.environmental_impact_desc"),
     },
     {
       icon: TrendingUp,
-      title: "Sustainable Development:",
-      description:
-        "We assist clients in adopting sustainable practices, incorporating eco-friendly technologies and energy-efficient processes.",
+      title: t("why.sustainable_development_title"),
+      description: t("why.sustainable_development_desc"),
     },
     {
       icon: Lightbulb,
-      title: "Problem Solving:",
-      description:
-        "Our consultants assess environmental issues and develop innovative solutions to environmental challenges.",
+      title: t("why.problem_solving_title"),
+      description: t("why.problem_solving_desc"),
     },
     {
       icon: Briefcase,
-      title: "Diverse Projects:",
-      description:
-        "We cover environmental impact assessments, site remediation, water resource management, and renewable energy projects.",
+      title: t("why.diverse_projects_title"),
+      description: t("why.diverse_projects_desc"),
     },
     {
       icon: GraduationCap,
-      title: "Educational Role:",
-      description:
-        "We educate clients about environmental issues and best practices, promoting environmental stewardship.",
+      title: t("why.educational_role_title"),
+      description: t("why.educational_role_desc"),
     },
     {
       icon: Users,
-      title: "Collaboration:",
-      description:
-        "We collaborate with experts from diverse fields, fostering a collaborative work environment for continuous learning.",
+      title: t("why.collaboration_title"),
+      description: t("why.collaboration_desc"),
     },
     {
       icon: Globe,
-      title: "Global Relevance:",
-      description:
-        "We work on international projects, addressing environmental challenges and contributing to global sustainability efforts.",
+      title: t("why.global_relevance_title"),
+      description: t("why.global_relevance_desc"),
     },
   ];
 
@@ -295,7 +290,7 @@ export default function WhyREC() {
           <div className="flex items-center justify-center gap-2 mb-3 subtitle-animate">
             <Sparkles className="w-4 h-4 text-teal-600 sparkle-icon" />
             <p className="text-teal-600 italic font-medium">
-              Get to Know About Us
+              {t("why.get_to_know_about_us")}
             </p>
             <Sparkles
               className="w-4 h-4 text-teal-600 sparkle-icon"
@@ -304,7 +299,7 @@ export default function WhyREC() {
           </div>
 
           <h2 className="text-5xl md:text-6xl font-bold text-gray-800 mb-4 title-animate">
-            Why <span className="gradient-text">REC?</span>
+            {t("why.title")} <span className="gradient-text">REC?</span>
           </h2>
           <div className="flex items-center justify-center gap-3 underline-animate">
             <div className="h-1 w-20 bg-gradient-to-r from-transparent to-teal-500 rounded-full"></div>
@@ -316,8 +311,7 @@ export default function WhyREC() {
             className="text-gray-600 mt-6 max-w-2xl mx-auto leading-relaxed subtitle-animate"
             style={{ animationDelay: "0.3s" }}
           >
-            Discover what makes us the premier choice for environmental
-            consultancy services
+            {t("why.subtitle")}
           </p>
         </div>
 
@@ -326,18 +320,15 @@ export default function WhyREC() {
           <div className="relative h-full min-h-[600px] rounded-2xl overflow-hidden shadow-2xl">
             <img
               src="/REC/photo_2023-08-25_20-25-23.jpg"
-              alt="Environmental Consulting"
+              alt={t("why.image_alt")}
               className="w-full h-full object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-teal-900/60 via-transparent to-transparent"></div>
             <div className="absolute bottom-8 left-8 right-8">
               <h3 className="text-white text-2xl font-bold mb-2">
-                Leading Environmental Solutions
+                {t("why.image_title")}
               </h3>
-              <p className="text-white/90 text-sm">
-                Committed to sustainable practices and innovative environmental
-                consulting
-              </p>
+              <p className="text-white/90 text-sm">{t("why.image_desc")}</p>
             </div>
           </div>
 
@@ -408,12 +399,12 @@ export default function WhyREC() {
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center cta-animate">
           <button className="btn-primary bg-gradient-to-r from-teal-600 to-emerald-600 hover:from-teal-700 hover:to-emerald-700 text-white px-8 py-3.5 rounded-xl font-semibold shadow-lg flex items-center gap-2 group relative z-10">
-            <span className="relative z-10">Learn More</span>
+            <span className="relative z-10">{t("why.learn_more")}</span>
             <ArrowRight className="w-5 h-5 relative z-10 transition-transform duration-300 group-hover:translate-x-1" />
           </button>
 
           <button className="btn-secondary border-2 border-teal-600 text-teal-600 hover:text-teal-700 px-8 py-3.5 rounded-xl font-semibold flex items-center gap-2 group bg-white relative z-10">
-            <span className="relative z-10">Contact Us</span>
+            <span className="relative z-10">{t("why.contact_us")}</span>
             <ArrowRight className="w-5 h-5 relative z-10 transition-transform duration-300 group-hover:translate-x-1" />
           </button>
         </div>

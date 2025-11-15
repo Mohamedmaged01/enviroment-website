@@ -9,6 +9,7 @@ import {
   Music,
   Play,
 } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 type NewsCardProps = {
   image: string;
@@ -30,6 +31,7 @@ const NewsCard = ({
   icon: Icon,
 }: NewsCardProps) => {
   const [isHovered, setIsHovered] = useState(false);
+  const { t } = useTranslation();
 
   return (
     <div
@@ -76,7 +78,7 @@ const NewsCard = ({
         </div>
         <p className="text-gray-600 leading-relaxed mb-4">{description}</p>
         <button className="text-green-600 font-medium flex items-center gap-2 transition-all duration-300 hover:gap-3 group/btn">
-          Continue
+          {t("continue")}
           <ChevronRight className="w-4 h-4 transition-transform duration-300 group-hover/btn:translate-x-1" />
         </button>
       </div>
@@ -85,40 +87,35 @@ const NewsCard = ({
 };
 
 export default function LatestNews() {
+  const { t } = useTranslation();
   const [currentSlide, setCurrentSlide] = useState(0);
 
   const newsItems = [
     {
-      image:
-        "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=800&h=600&fit=crop",
-      title: "Environment Perspective",
-      author: "Johny Walker",
-      date: "11/2025",
-      comments: "0",
-      description:
-        "Mauris id enim id purus ornare tincidunt. Aenean vel consequat risus. Proin viverra nisi at nisl imperdiet auctor.",
+      image: "/REC/AdobeStock_230582066.jpeg",
+      title: t("news.title1"),
+      author: t("news.author1"),
+      date: t("news.date1"),
+      comments: t("news.comments1"),
+      description: t("news.description1"),
       icon: null,
     },
     {
-      image:
-        "https://images.unsplash.com/photo-1535083783855-76ae62b2914e?w=800&h=600&fit=crop",
-      title: "New Ecological Bulbs",
-      author: "Johny Walker",
-      date: "11/2025",
-      comments: "0",
-      description:
-        "Mauris id enim id purus ornare tincidunt. Aenean vel consequat risus. Proin viverra nisi at nisl imperdiet auctor.",
+      image: "/REC/AdobeStock_241329818.jpeg",
+      title: t("news.title2"),
+      author: t("news.author2"),
+      date: t("news.date2"),
+      comments: t("news.comments2"),
+      description: t("news.description2"),
       icon: Music,
     },
     {
-      image:
-        "https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?w=800&h=600&fit=crop",
-      title: "Protect The Environment",
-      author: "Johny Walker",
-      date: "11/2025",
-      comments: "0",
-      description:
-        "Mauris id enim id purus ornare tincidunt. Aenean vel consequat risus. Proin viverra nisi at nisl imperdiet auctor.",
+      image: "/REC/AdobeStock_246518113.jpeg",
+      title: t("news.title3"),
+      author: t("news.author3"),
+      date: t("news.date3"),
+      comments: t("news.comments3"),
+      description: t("news.description3"),
       icon: Play,
     },
   ];
@@ -177,7 +174,7 @@ export default function LatestNews() {
           <div className="flex-1"></div>
           <div className="text-center title-animate">
             <h2 className="text-4xl font-bold text-gray-800 mb-3">
-              LATEST <span className="gradient-text">NEWS</span>
+              <span className="gradient-text">{t("news.title")}</span>
             </h2>
             <div className="relative h-1 w-16 mx-auto bg-gray-200 rounded-full overflow-hidden">
               <div className="absolute inset-0 bg-linear-to-r from-[#31899D] via-[#4EAD8B] to-[#31899D] underline-animate"></div>

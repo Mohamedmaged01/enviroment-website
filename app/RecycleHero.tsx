@@ -3,8 +3,10 @@ import React, { useState, useEffect } from "react";
 import Navbar from "./Navbar";
 import HeroCarousel from "./HeroCarousel";
 import ServiceGrid from "./ServiceGrid";
+import { useTranslation } from "react-i18next";
 
 export default function RecycleHero() {
+  const { t } = useTranslation();
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
@@ -15,25 +17,19 @@ export default function RecycleHero() {
 
   const slides = [
     {
-      image:
-        "https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?auto=format&fit=crop&w=1920&q=80",
-      title: "Recycle for a Better Tomorrow",
-      description:
-        "Join us in making the world greener by recycling waste responsibly.",
+      image: "/REC/AdobeStock_101394950.jpeg",
+      title: t("hero.recycle_title"),
+      description: t("hero.recycle_desc"),
     },
     {
-      image:
-        "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=1920&q=80",
-      title: "Sustainable Solutions",
-      description:
-        "We provide sustainable waste management solutions for businesses.",
+      image: "/REC/AdobeStock_14240675.jpeg",
+      title: t("hero.sustainable_title"),
+      description: t("hero.sustainable_desc"),
     },
     {
-      image:
-        "https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=1920&q=80",
-      title: "Protect the Environment",
-      description:
-        "Our mission is to minimize environmental impact through recycling.",
+      image: "/REC/AdobeStock_199331282.jpeg",
+      title: t("hero.protect_title"),
+      description: t("hero.protect_desc"),
     },
   ];
 
@@ -219,37 +215,38 @@ export default function RecycleHero() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 shadow-2xl">
             {/* Industrial Card */}
             <div className="bg-linear-to-br from-teal-500 to-teal-600 text-white p-8 hover:from-teal-600 hover:to-teal-700 transition-all duration-300 rounded-xl transform hover:-translate-y-2 hover:shadow-2xl cursor-pointer">
-              <h3 className="text-xl font-bold mb-2">INDUSTRIAL</h3>
-              <p className="italic text-lg mb-4 opacity-90">Waste Management</p>
+              <h3 className="text-xl font-bold mb-2">
+                {t("cards.industrial_title")}
+              </h3>
+              <p className="italic text-lg mb-4 opacity-90">
+                {t("cards.industrial_subtitle")}
+              </p>
               <p className="text-sm leading-relaxed opacity-90">
-                We offer complete industrial waste management services, from
-                collection to recycling.
+                {t("cards.industrial_desc")}
               </p>
             </div>
             {/* Sustainable Card */}
             <div className="bg-white p-8 hover:bg-gray-50 transition-all duration-300 rounded-xl transform hover:-translate-y-2 hover:shadow-2xl cursor-pointer border-2 border-transparent hover:border-teal-500">
               <h3 className="text-xl font-bold text-teal-600 mb-2">
-                SUSTAINABLE
+                {t("cards.sustainable_title")}
               </h3>
               <p className="italic text-lg text-gray-600 mb-4">
-                Business Solutions
+                {t("cards.sustainable_subtitle")}
               </p>
               <p className="text-sm text-gray-700 leading-relaxed">
-                We help business adopt sustainable and environmentally
-                responsible recycling practices.
+                {t("cards.sustainable_desc")}
               </p>
             </div>
             {/* Environmental Card */}
             <div className="bg-white p-8 hover:bg-gray-50 transition-all duration-300 rounded-xl transform hover:-translate-y-2 hover:shadow-2xl cursor-pointer border-2 border-transparent hover:border-teal-500">
               <h3 className="text-xl font-bold text-teal-600 mb-2">
-                ENVIRONMENTAL
+                {t("cards.environmental_title")}
               </h3>
               <p className="italic text-lg text-gray-600 mb-4">
-                Quality Services
+                {t("cards.environmental_subtitle")}
               </p>
               <p className="text-sm text-gray-700 leading-relaxed">
-                We focus on disposing of all waste sustainably and minimizing
-                environmental impact.
+                {t("cards.environmental_desc")}
               </p>
             </div>
           </div>
@@ -264,20 +261,17 @@ export default function RecycleHero() {
               className={`${isVisible ? "animate-slide-in-left" : "opacity-0"}`}
             >
               <h2 className="text-4xl font-bold text-gray-800 mb-4">
-                Welcome to <span className="text-gradient">Recycle</span>
+                {t("welcome.title")}{" "}
+                <span className="text-gradient">{t("welcome.brand")}</span>
               </h2>
               <p className="text-lg text-gray-600 mb-6 font-medium">
-                We are a Leading Global Waste Management Company, Committed to
-                The Environment
+                {t("welcome.subtitle")}
               </p>
               <p className="text-gray-600 mb-8 leading-relaxed">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam
-                massa ligula, aliquet euismod eleifend vitae, interdum ut mi.
-                Praesent fringilla pharetra sapien sit amet semper. Nunc id
-                massa ut mi tempus mattis ac eu lectus.
+                {t("welcome.description")}
               </p>
               <button className="border-2 border-teal-600 text-teal-600 px-8 py-3 rounded-lg hover:bg-teal-600 hover:text-white transition-all duration-300 font-semibold transform hover:scale-105 hover:shadow-lg">
-                OUR SERVICES
+                {t("welcome.button")}
               </button>
             </div>
             {/* Right Video */}
@@ -309,12 +303,11 @@ export default function RecycleHero() {
           {/* Section Header */}
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-gray-800 mb-4">
-              Services & <span className="text-gradient">Solutions</span>
+              {t("services.title")}{" "}
+              <span className="text-gradient">{t("services.subtitle")}</span>
             </h2>
             <p className="text-gray-600 italic max-w-4xl mx-auto text-lg">
-              We offer comprehensive recycling, industry-specific waste
-              management, quality control & sustainability solutions for
-              businesses and corporations.
+              {t("services.description")}
             </p>
           </div>
           {/* Service Grid */}
