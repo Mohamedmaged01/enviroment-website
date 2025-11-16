@@ -21,7 +21,7 @@ export default function ServicesSection() {
       icon: Recycle,
       title: t("services.climate_adaptation_title"),
       description: t("services.climate_adaptation_desc"),
-      image: "/REC/Better-Lives-Image-1.jpg",
+      image: "/REC/photo_2023-08-25_20-25-23.jpg",
     },
   ];
 

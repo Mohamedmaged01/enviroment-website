@@ -1,5 +1,6 @@
 "use client";
 import "./i18n";
+import { useDarkMode } from "./DarkModeContext";
 
 import React, { useState } from "react";
 import {
@@ -15,6 +16,8 @@ import { useTranslation } from "react-i18next";
 export default function EcofineNavbar() {
   const [activeMenu, setActiveMenu] = useState("Home");
   const { t, i18n } = useTranslation();
+  const { darkMode, toggleDarkMode } = useDarkMode();
+  const currentLang = i18n.language;
 
   const handleLangChange = (lng: string) => {
     i18n.changeLanguage(lng);
@@ -60,29 +63,70 @@ export default function EcofineNavbar() {
               >
                 <Instagram className="w-4 h-4" />
               </a>
+              {currentLang === "ar" ? (
+                <button
+                  onClick={() => handleLangChange("en")}
+                  className="flex items-center gap-2 px-3 py-1 rounded-lg border border-gray-300 bg-white hover:bg-gray-100 shadow-sm transition text-sm font-semibold text-black"
+                  style={{ minWidth: 80 }}
+                >
+                  <img
+                    src="/uk.png"
+                    alt="USA flag"
+                    className="w-5 h-5 rounded-sm border"
+                  />
+                  EN
+                </button>
+              ) : (
+                <button
+                  onClick={() => handleLangChange("ar")}
+                  className="flex items-center gap-2 px-3 py-1 rounded-lg border border-gray-300 bg-white hover:bg-gray-100 shadow-sm transition text-sm font-semibold text-black"
+                  style={{ minWidth: 80 }}
+                >
+                  <img
+                    src="/sa.png"
+                    alt="Saudi Arabia flag"
+                    className="w-5 h-5 rounded-sm border"
+                  />
+                  AR
+                </button>
+              )}
+              {/* Dark Mode Switch Button */}
               <button
-                onClick={() => handleLangChange("en")}
-                className="flex items-center gap-2 px-3 py-1 rounded-lg border border-gray-300 bg-white hover:bg-gray-100 shadow-sm transition text-sm font-semibold text-black"
-                style={{ minWidth: 80 }}
+                onClick={toggleDarkMode}
+                className="ml-4 px-3 py-1 rounded-lg border border-gray-300 bg-white hover:bg-gray-100 shadow-sm transition text-sm font-semibold text-black flex items-center gap-2"
+                aria-label={
+                  darkMode ? t("navbar.light_mode") : t("navbar.dark_mode")
+                }
               >
-                <img
-                  src="/uk.png"
-                  alt="USA flag"
-                  className="w-5 h-5 rounded-sm border"
-                />
-                EN
-              </button>
-              <button
-                onClick={() => handleLangChange("ar")}
-                className="flex items-center gap-2 px-3 py-1 rounded-lg border border-gray-300 bg-white hover:bg-gray-100 shadow-sm transition text-sm font-semibold text-black"
-                style={{ minWidth: 80 }}
-              >
-                <img
-                  src="/sa.png"
-                  alt="Saudi Arabia flag"
-                  className="w-5 h-5 rounded-sm border"
-                />
-                AR
+                {darkMode ? (
+                  <svg width="20" height="20" fill="none" viewBox="0 0 24 24">
+                    <path
+                      d="M12 3v2m0 14v2m9-9h-2M5 12H3m15.364-6.364l-1.414 1.414M7.05 16.95l-1.414 1.414m12.728 0l-1.414-1.414M7.05 7.05L5.636 5.636"
+                      stroke="#5EC198"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                    <circle
+                      cx="12"
+                      cy="12"
+                      r="5"
+                      stroke="#5EC198"
+                      strokeWidth="2"
+                    />
+                  </svg>
+                ) : (
+                  <svg width="20" height="20" fill="none" viewBox="0 0 24 24">
+                    <path
+                      d="M21 12.79A9 9 0 1111.21 3a7 7 0 109.79 9.79z"
+                      stroke="#5EC198"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                )}
+                {darkMode ? t("navbar.light_mode") : t("navbar.dark_mode")}
               </button>
             </div>
           </div>

@@ -7,17 +7,18 @@
   --secondary: #5ec198;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+[data-theme="dark"] {
+  --background: #0a0a0a;
+  --foreground: #ededed;
+  --primary: #31899d;
+  --secondary: #4ead8b;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+  transition: background 0.3s, color 0.3s;
 }
 
 /* Utility classes for new brand colors */

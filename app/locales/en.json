@@ -9,7 +9,9 @@
     "service": "Service",
     "page": "Page",
     "blog": "Blog",
-    "contact": "Contact"
+    "contact": "Contact",
+    "dark_mode": "Dark Mode",
+    "light_mode": "Light Mode"
   },
   "footer": {
     "location": "Visit our location",
@@ -68,7 +70,7 @@
     "subtitle": "Our Service Portfolio",
     "description": "We offer a wide range of environmental and consulting services to support sustainability and protect the environment.",
     "carbon_offsetting_title": "Carbon Offsetting",
-    "carbon_offsetting_desc": "This allows individuals and organizations to support their efforts to combat carbon climate change.",
+    "carbon_offsetting_desc": "This allows individuals and organizations to support their efforts to combat carbon climate .",
     "energy_consulting_title": "Energy Consulting",
     "energy_consulting_desc": "Energy consulting involves providing expert advice and guidance on energy-related matters.",
     "climate_adaptation_title": "Climate Adaptation",

@@ -9,7 +9,9 @@
     "service": "الخدمات",
     "page": "الصفحات",
     "blog": "المدونة",
-    "contact": "اتصل بنا"
+    "contact": "اتصل بنا",
+    "dark_mode": "الوضع الليلي",
+    "light_mode": "وضع النهار"
   },
   "footer": {
     "location": "زر موقعنا",
