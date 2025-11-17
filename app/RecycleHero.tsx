@@ -206,7 +206,7 @@ export default function RecycleHero() {
           animation-delay: 0.6s;
         }
       `}</style>
-      <Navbar />
+
       {/* Hero Section with Enhanced Carousel */}
       <HeroCarousel slides={slides} />
       {/* Three Service Cards */}

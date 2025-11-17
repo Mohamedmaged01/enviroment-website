@@ -1,6 +1,7 @@
 "use client";
 import "./i18n";
 import { useDarkMode } from "./DarkModeContext";
+import Link from "next/link";
 
 import React, { useState } from "react";
 import {
@@ -147,70 +148,82 @@ export default function EcofineNavbar() {
           <div className="flex items-center gap-8">
             {/* Home with Badge */}
             <div className="relative">
-              <button
-                onClick={() => setActiveMenu("Home")}
-                className={`flex items-center gap-1 text-teal-900 font-medium hover:text-[#5EC198] transition ${
-                  activeMenu === "Home" ? "text-[#5EC198]" : ""
-                }`}
-              >
-                {t("navbar.home")}
-                <ChevronDown className="w-4 h-4" />
-              </button>
+              <Link href="/">
+                <button
+                  onClick={() => setActiveMenu("Home")}
+                  className={`flex items-center gap-1 text-teal-900 font-medium hover:text-[#5EC198] transition ${
+                    activeMenu === "Home" ? "text-[#5EC198]" : ""
+                  }`}
+                >
+                  {t("navbar.home")}
+                  <ChevronDown className="w-4 h-4" />
+                </button>
+              </Link>
             </div>
 
             {/* About Us */}
-            <button
-              onClick={() => setActiveMenu("About Us")}
-              className={`text-teal-900 font-medium hover:text-[#5EC198] transition ${
-                activeMenu === "About Us" ? "text-[#5EC198]" : ""
-              }`}
-            >
-              {t("navbar.about")}
-            </button>
+            <Link href="/about">
+              <button
+                onClick={() => setActiveMenu("About Us")}
+                className={`text-teal-900 font-medium hover:text-[#5EC198] transition ${
+                  activeMenu === "About Us" ? "text-[#5EC198]" : ""
+                }`}
+              >
+                {t("navbar.about")}
+              </button>
+            </Link>
 
             {/* Service */}
-            <button
-              onClick={() => setActiveMenu("Service")}
-              className={`text-teal-900 font-medium hover:text-[#5EC198] transition ${
-                activeMenu === "Service" ? "text-[#5EC198]" : ""
-              }`}
-            >
-              {t("navbar.service")}
-            </button>
+            <Link href="/services">
+              <button
+                onClick={() => setActiveMenu("Service")}
+                className={`text-teal-900 font-medium hover:text-[#5EC198] transition ${
+                  activeMenu === "Service" ? "text-[#5EC198]" : ""
+                }`}
+              >
+                {t("navbar.service")}
+              </button>
+            </Link>
 
             {/* Page with Badge */}
             <div className="relative">
-              <button
-                onClick={() => setActiveMenu("Page")}
-                className={`flex items-center gap-1 text-teal-900 font-medium hover:text-[#5EC198] transition ${
-                  activeMenu === "Page" ? "text-[#5EC198]" : ""
-                }`}
-              >
-                {t("navbar.page")}
-                <ChevronDown className="w-4 h-4" />
-              </button>
+              <Link href="/">
+                <button
+                  onClick={() => setActiveMenu("Page")}
+                  className={`flex items-center gap-1 text-teal-900 font-medium hover:text-[#5EC198] transition ${
+                    activeMenu === "Page" ? "text-[#5EC198]" : ""
+                  }`}
+                >
+                  {t("navbar.page")}
+                  <ChevronDown className="w-4 h-4" />
+                </button>
+              </Link>
             </div>
 
             {/* Blog */}
-            <button
-              onClick={() => setActiveMenu("Blog")}
-              className={`flex items-center gap-1 text-teal-900 font-medium hover:text-[#5EC198] transition ${
-                activeMenu === "Blog" ? "text-[#5EC198]" : ""
-              }`}
-            >
-              {t("navbar.blog")}
-              <ChevronDown className="w-4 h-4" />
-            </button>
+            <Link href="/">
+              <button
+                onClick={() => setActiveMenu("Blog")}
+                className={`flex items-center gap-1 text-teal-900 font-medium hover:text-[#5EC198] transition ${
+                  activeMenu === "Blog" ? "text-[#5EC198]" : ""
+                }`}
+              >
+                {t("navbar.blog")}
+                <ChevronDown className="w-4 h-4" />
+              </button>
+            </Link>
 
             {/* Contact */}
-            <button
-              onClick={() => setActiveMenu("Contact")}
-              className={`text-teal-900 font-medium hover:text-[#5EC198] transition ${
-                activeMenu === "Contact" ? "text-[#5EC198]" : ""
-              }`}
-            >
-              {t("navbar.contact")}
-            </button>
+            <Link href="/contact">
+              <button
+                onClick={() => setActiveMenu("Contact")}
+                className={`text-teal-900 font-medium hover:text-[#5EC198] transition ${
+                  activeMenu === "Contact" ? "text-[#5EC198]" : ""
+                }`}
+              >
+                {t("navbar.contact")}
+              </button>
+            </Link>
 
             {/* Get A Quote Button */}
             <button className="bg-[#5EC198] hover:bg-teal-900 text-white font-medium px-6 py-3 rounded-lg transition flex items-center gap-2">
